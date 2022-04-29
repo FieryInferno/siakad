@@ -7,9 +7,11 @@ import CIcon from '@coreui/icons-react';
 import {cilLockLocked, cilUser} from '@coreui/icons';
 import {login} from '../../actions/login';
 import {useDispatch} from 'react-redux';
+import {useNavigate} from 'react-router';
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     username: '',
     password: '',
