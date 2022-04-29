@@ -8,8 +8,24 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.post('/api/auth/login', (req, res) => res.json({
-  message: 'Server is running',
-}));
+require('./routes/auth.routes')(app);
+
+// const db = require('./models');
+// const User = db.user;
+// const bcrypt = require('bcryptjs');
+
+// const initialUser = () => {
+//   User.create({
+//     username: 'admin',
+//     password: bcrypt.hashSync('admin', 8),
+//     name: 'admin',
+//   });
+// };
+
+// db.sequelize.sync({force: true})
+//     .then(() => {
+//       console.log('Drop and resync DB');
+//       initialUser();
+//     });
 
 app.listen(5000, () => console.log('Server is running on port 5000'));
