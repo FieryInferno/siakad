@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   CButton, CCard, CCardBody, CCardGroup, CCol, CContainer, CForm, CFormInput,
-  CInputGroup, CInputGroupText, CRow,
+  CInputGroup, CInputGroupText, CRow, CToaster, CToast, CToastBody,
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import {cilLockLocked, cilUser} from '@coreui/icons';
@@ -12,15 +12,23 @@ import {useNavigate} from 'react-router';
 const Login = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toaster = useRef();
+  const [toast, addToast] = useState();
   const [values, setValues] = useState({
     username: '',
     password: '',
   });
 
+  const failedLogin = (message) => (
+    <CToast title="CoreUI for React.js" color="danger">
+      <CToastBody>{message}</CToastBody>
+    </CToast>
+  );
+
   const onSubmit = () => {
     dispatch(login(values))
         .then((data) => navigate('/dashboard'))
-        .catch((e) => console.log(e));
+        .catch((e) => addToast(failedLogin(e.response.data.message)));
   };
 
   return (
@@ -81,7 +89,7 @@ const Login = (props) => {
           </CCol>
         </CRow>
       </CContainer>
-      {/* <CToaster ref={toaster} push={toast} placement="top-center" /> */}
+      <CToaster ref={toaster} push={toast} placement="top-center" />
     </div>
   );
 };
