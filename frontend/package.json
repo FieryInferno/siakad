@@ -36,10 +36,19 @@
     ]
   },
   "devDependencies": {
+    "@coreui/coreui": "^4.1.4",
+    "@coreui/icons": "^2.1.0",
+    "@coreui/icons-react": "^2.0.1",
+    "@coreui/react": "^4.2.0",
     "eslint": "^8.14.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.29.4",
     "react-redux": "^8.0.1",
-    "redux": "^4.2.0"
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0"
   }
 }
