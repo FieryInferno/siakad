@@ -27,8 +27,6 @@ const Test = lazy(() => import('./pages/Test'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
 
-  console.log(login);
-
   return (
     <Suspense fallback={<Spinner/>}>
       <Switch>

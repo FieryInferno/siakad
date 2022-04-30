@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Link, useLocation, withRouter} from 'react-router-dom';
 import {Collapse, Dropdown} from 'react-bootstrap';
 import {Trans} from 'react-i18next';
+import {useSelector} from 'react-redux';
 
 const Sidebar = (props) => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const Sidebar = (props) => {
   const [userPagesMenuOpen] = useState(false);
   const [errorPagesMenuOpen] = useState(false);
   const isPathActive = (path) => location.pathname.startsWith(path);
-  // state = {};
+  const user = useSelector((state) => state.login);
 
   // toggleMenuState(menuState) {
   //   if (state[menuState]) {
@@ -60,16 +61,6 @@ const Sidebar = (props) => {
 
   return (
     <nav className="sidebar sidebar-offcanvas" id="sidebar">
-      <div
-        className="
-          sidebar-brand-wrapper
-          d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a className="sidebar-brand brand-logo" href="index.html">
-          <img src={require('../assets/images/logo.svg')} alt="logo" /></a>
-        <a className="sidebar-brand brand-logo-mini" href="index.html">
-          <img src={require('../assets/images/logo-mini.svg')} alt="logo" />
-        </a>
-      </div>
       <ul className="nav">
         <li className="nav-item profile">
           <div className="profile-desc">
@@ -83,8 +74,8 @@ const Sidebar = (props) => {
               </div>
               <div className="profile-name">
                 <h5 className="mb-0 font-weight-normal">
-                  <Trans>Henry Klein</Trans></h5>
-                <span><Trans>Gold Member</Trans></span>
+                  <Trans>{user?.name}</Trans></h5>
+                <span><Trans>{user?.role}</Trans></span>
               </div>
             </div>
             <Dropdown alignRight>

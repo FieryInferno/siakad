@@ -3,6 +3,8 @@ module.exports = (sequelize, Sequelize) => {
     username: {type: Sequelize.STRING},
     password: {type: Sequelize.STRING},
     name: {type: Sequelize.STRING},
+    // eslint-disable-next-line new-cap
+    role: {type: Sequelize.ENUM('admin', 'walikelas')},
   });
 
   return User;

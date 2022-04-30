@@ -13,7 +13,7 @@ exports.login = (req, res) => {
           res.status(404).send({message: 'User not found'});
         } else {
           const {
-            id, username: usernameUser, password: passwordUser, name,
+            id, username: usernameUser, password: passwordUser, name, role,
           } = user;
 
           if (!bcrypt.compareSync(password, passwordUser)) {
@@ -26,6 +26,7 @@ exports.login = (req, res) => {
             usename: usernameUser,
             name: name,
             accessToken: token,
+            role: role,
           });
         }
       })

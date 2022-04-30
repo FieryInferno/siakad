@@ -19,6 +19,7 @@ require('./routes/auth.routes')(app);
 //     username: 'admin',
 //     password: bcrypt.hashSync('admin', 8),
 //     name: 'admin',
+//     role: 'admin',
 //   });
 // };
 
