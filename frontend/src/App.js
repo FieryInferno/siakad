@@ -5,6 +5,7 @@ import Sidebar from './shared/Sidebar';
 import Footer from './shared/Footer';
 import AppRoutes from './AppRoutes';
 import {useLocation} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 const App = () => {
   const [fullPage, setFullPage] = useState(true);
@@ -17,13 +18,15 @@ const App = () => {
     onRouteChanged();
   }, []);
 
+  useEffect(() => {
+    onRouteChanged();
+  }, [location]);
+
   const onRouteChanged = () => {
-    console.log('ROUTE CHANGED');
     window.scrollTo(0, 0);
     const fullPageLayoutRoutes = ['/login'];
     for ( let i = 0; i < fullPageLayoutRoutes.length; i++ ) {
       if (location.pathname === fullPageLayoutRoutes[i]) {
-        console.log(location.pathname === fullPageLayoutRoutes[i]);
         setFullPage(true);
         document.querySelector('.page-body-wrapper')
             .classList.add('full-page-wrapper');
@@ -52,4 +55,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);

@@ -1,10 +1,9 @@
 import React, {Suspense, lazy} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
-
+import {Switch, Route} from 'react-router-dom';
 import Spinner from './shared/Spinner';
 
-// const Dashboard = lazy(() => import('./dashboard/Dashboard'));
-
+const Login = lazy(() => import('./pages/Login'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
 // const Buttons = lazy(() => import('./basic-ui/Buttons'));
 // const Dropdowns = lazy(() => import('./basic-ui/Dropdowns'));
 // const Typography = lazy(() => import('./basic-ui/Typography'));
@@ -20,7 +19,6 @@ import Spinner from './shared/Spinner';
 // const Error404 = lazy(() => import('./error-pages/Error404'));
 // const Error500 = lazy(() => import('./error-pages/Error500'));
 
-const Login = lazy(() => import('./pages/Login'));
 // const Register1 = lazy(() => import('./user-pages/Register'));
 
 
@@ -28,9 +26,10 @@ const AppRoutes = (props) => {
   return (
     <Suspense fallback={<Spinner/>}>
       <Switch>
-        {/* <Route exact path="/dashboard" component={ Dashboard} />
+        <Route path="/login" component={ Login } />
+        <Route path="/dashboard" component={ Dashboard} />
 
-        <Route path="/basic-ui/buttons" component={ Buttons } />
+        {/* <Route path="/basic-ui/buttons" component={ Buttons } />
         <Route path="/basic-ui/dropdowns" component={ Dropdowns } />
         <Route path="/basic-ui/typography" component={ Typography } />
 
@@ -44,14 +43,13 @@ const AppRoutes = (props) => {
         <Route path="/charts/chart-js" component={ ChartJs } /> */}
 
 
-        <Route path="/login" component={ Login } />
         {/* <Route path="/user-pages/register-1" component={ Register1 } />
 
         <Route path="/error-pages/error-404" component={ Error404 } />
         <Route path="/error-pages/error-500" component={ Error500 } /> */}
 
 
-        <Redirect to="/login" />
+        {/* <Redirect to="/dashboard" /> */}
       </Switch>
     </Suspense>
   );
