@@ -47,27 +47,8 @@ export const Dashboard= (props) => {
   //   slidesToScroll: 1,
   // };
 
-  const toggleProBanner = () => {
-    document.querySelector('.proBanner').classList.toggle('hide');
-  };
-
   return (
     <div>
-      <div className="proBanner">
-        <div>
-          <span className="d-flex align-items-center purchase-popup">
-            <p>
-              Get tons of UI components,
-              Plugins, multiple layouts, 20+ sample pages, and more!
-            </p>
-            <a href="https://www.bootstrapdash.com/product/corona-react/?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" rel="noopener noreferrer" target="_blank" className="btn btn-sm purchase-button ml-auto">Check Pro Version</a>
-            <i
-              className="mdi mdi-close bannerClose"
-              onClick={toggleProBanner}
-            ></i>
-          </span>
-        </div>
-      </div>
       <div className="row">
         <div className="col-12 grid-margin stretch-card">
           <div className="card corona-gradient-card">

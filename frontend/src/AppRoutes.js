@@ -1,6 +1,7 @@
 import React, {Suspense, lazy} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Spinner from './shared/Spinner';
+import {useSelector} from 'react-redux';
 
 const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
@@ -23,12 +24,19 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 
 
 const AppRoutes = (props) => {
+  const login = useSelector((state) => state.login);
+
   return (
     <Suspense fallback={<Spinner/>}>
       <Switch>
         <Route path="/login" component={ Login } />
         <Route path="/dashboard" component={ Dashboard} />
-
+        {login && (
+          <>
+            <Redirect from='/' to="/dashboard" />
+            <Redirect from='/login' to="/dashboard" />
+          </>
+        )}
         {/* <Route path="/basic-ui/buttons" component={ Buttons } />
         <Route path="/basic-ui/dropdowns" component={ Dropdowns } />
         <Route path="/basic-ui/typography" component={ Typography } />
@@ -47,9 +55,6 @@ const AppRoutes = (props) => {
 
         <Route path="/error-pages/error-404" component={ Error404 } />
         <Route path="/error-pages/error-500" component={ Error500 } /> */}
-
-
-        {/* <Redirect to="/dashboard" /> */}
       </Switch>
     </Suspense>
   );
