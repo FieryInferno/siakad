@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 
 const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Test = lazy(() => import('./pages/Test'));
 // const Buttons = lazy(() => import('./basic-ui/Buttons'));
 // const Dropdowns = lazy(() => import('./basic-ui/Dropdowns'));
 // const Typography = lazy(() => import('./basic-ui/Typography'));
@@ -26,15 +27,22 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
 
+  console.log(login);
+
   return (
     <Suspense fallback={<Spinner/>}>
       <Switch>
-        <Route path="/login" component={ Login } />
-        <Route path="/dashboard" component={ Dashboard} />
-        {login && (
+        <Route path="/test" component={ Test } />
+        {login ? (
           <>
+            <Route path="/dashboard" component={ Dashboard } />
             <Redirect from='/' to="/dashboard" />
             <Redirect from='/login' to="/dashboard" />
+          </>
+        ) : (
+          <>
+            <Route path="/login" component={ Login } />
+            <Redirect from='*' to="/login" />
           </>
         )}
         {/* <Route path="/basic-ui/buttons" component={ Buttons } />

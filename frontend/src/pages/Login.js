@@ -10,10 +10,7 @@ export const Login = () => {
   const [values, setValues] = useState();
   const onSubmit = () => {
     dispatch(login(values))
-        .then((data) => {
-          localStorage.setItem('login', JSON.stringify(data));
-          history.push('/dashboard');
-        })
+        .then((data) => history.push('/dashboard'))
         .catch((e) => console.log(e.response.data.message));
   };
 
