@@ -7,11 +7,11 @@ import CIcon from '@coreui/icons-react';
 import {cilLockLocked, cilUser} from '@coreui/icons';
 import {login} from '../../actions/login';
 import {useDispatch} from 'react-redux';
-import {useNavigate} from 'react-router';
+import {useHistory} from 'react-router-dom';
 
 const Login = (props) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const history = useHistory();
   const toaster = useRef();
   const [toast, addToast] = useState();
   const [values, setValues] = useState({
@@ -27,7 +27,10 @@ const Login = (props) => {
 
   const onSubmit = () => {
     dispatch(login(values))
-        .then((data) => navigate('/dashboard'))
+        .then((data) => {
+          localStorage.setItem('login', JSON.stringify(data));
+          history.push('/dashboard');
+        })
         .catch((e) => addToast(failedLogin(e.response.data.message)));
   };
 
