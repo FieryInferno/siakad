@@ -9,9 +9,10 @@ const SiakadForm = ({formContent}) => {
           <label htmlFor={form.id}>{form.label}</label>
           {form.type === 'select' ?
             (
-              <select className="form-control" id="exampleSelectGender">
-                <option>Male</option>
-                <option>Female</option>
+              <select className="form-control" id={form.id}>
+                {form.data.map((option, index) => (
+                  <option key={index}>{option.nama}</option>
+                ))}
               </select>
             ) :
             (

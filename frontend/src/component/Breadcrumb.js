@@ -5,13 +5,13 @@ const Breadcrumb = ({title, options}) => {
     const breadcrumb = [];
     for (let index = 0; index < options.length; index++) {
       if (index !== options.length - 1) {
-        breadcrumb.push(<li className="breadcrumb-item">
+        breadcrumb.push(<li className="breadcrumb-item" key={index}>
           <a href="!#" onClick={(event) => event.preventDefault()}>
             {options[index]}
           </a>
         </li>);
       } else {
-        breadcrumb.push(<li
+        breadcrumb.push(<li key={index}
           className="breadcrumb-item active" aria-current="page">
           {options[index]}
         </li>);

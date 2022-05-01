@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/auth.routes')(app);
 require('./routes/siswa.routes')(app);
+require('./routes/agama.routes')(app);
+require('./routes/rombel.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;

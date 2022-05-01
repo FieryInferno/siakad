@@ -1,6 +1,6 @@
 const {authJwt} = require('../middleware');
 const {verifyToken} = authJwt;
-const siswa = require('../controller/siswa.controller');
+const controller = require('../controller/rombel.controller');
 
 module.exports = (app) => {
   app.use((req, res, next) => {
@@ -8,8 +8,9 @@ module.exports = (app) => {
         'Access-Control-Allow-Headers',
         'x-access-token, Origin, Content-Type, Accept',
     );
+
     next();
   });
 
-  app.get('/api/siswa', [verifyToken], siswa.getAll);
+  app.get('/api/rombel', [verifyToken], controller.getAll);
 };

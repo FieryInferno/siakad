@@ -51,7 +51,7 @@ const Navbar = (props) => {
                   src={require('../assets/images/faces/face15.jpg')}
                   alt="profile" />
                 <p className="mb-0 d-none d-sm-block navbar-profile-name">
-                  <Trans>{user.name}</Trans></p>
+                  <Trans>{user?.name}</Trans></p>
                 <i className="mdi mdi-menu-down d-none d-sm-block"></i>
               </div>
             </Dropdown.Toggle>
