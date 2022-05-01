@@ -6,8 +6,6 @@ export const Siswa = () => {
   const dispatch = useDispatch();
   const siswa = useSelector((state) => state.siswa);
 
-  console.log(siswa);
-
   useEffect(() => {
     dispatch(retrieveSiswa());
   }, []);
@@ -43,21 +41,27 @@ export const Siswa = () => {
                       <th> Nama </th>
                       <th> Tempat Lahir </th>
                       <th> Tanggal Lahir </th>
+                      <th> Agama </th>
+                      <th> Rombel </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td className="py-1">
-                        <img
-                          src={require('../assets/images/faces/face1.jpg')}
-                          alt="user icon" />
-                      </td>
-                      <td> 10104019 </td>
-                      <td> Herman Beck </td>
-                      <td> $ 77.99 </td>
-                      <td> May 15, 2015 </td>
-                    </tr>
+                    {siswa.map((siswa, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td className="py-1">
+                          <img
+                            src={require('../assets/images/faces/face1.jpg')}
+                            alt="user icon" />
+                        </td>
+                        <td> {siswa.nim} </td>
+                        <td> {siswa.nama} </td>
+                        <td> {siswa.tempat_lahir} </td>
+                        <td> {siswa.tanggal_lahir} </td>
+                        <td> {siswa.agama.nama} </td>
+                        <td> {siswa.rombel.nama} </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
