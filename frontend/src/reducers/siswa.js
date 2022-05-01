@@ -7,7 +7,7 @@ const siswaReducer = (siswa = initialState, action) => {
 
   switch (type) {
     case RETRIEVE_SISWA:
-      return [...siswa, payload];
+      return payload;
     default:
       return siswa;
   }
