@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 
 const Sidebar = (props) => {
   const location = useLocation();
-  const [basicUiMenuOpen] = useState(false);
   const [formElementsMenuOpen] = useState(false);
   const [tablesMenuOpen] = useState(false);
   const [chartsMenuOpen] = useState(false);
@@ -112,21 +111,6 @@ const Sidebar = (props) => {
                       <Trans>Change Password</Trans></p>
                   </div>
                 </a>
-                <div className="dropdown-divider"></div>
-                <a
-                  href="!#"
-                  className="dropdown-item preview-item"
-                  onClick={(evt) => evt.preventDefault()}>
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-calendar-today text-success"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject ellipsis mb-1 text-small">
-                      <Trans>To-do list</Trans></p>
-                  </div>
-                </a>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -143,39 +127,14 @@ const Sidebar = (props) => {
             <span className="menu-title"><Trans>Dashboard</Trans></span>
           </Link>
         </li>
-        <li className={isPathActive('/basic-ui') ?
+        <li className={isPathActive('/siswa') ?
         'nav-item menu-items active' : 'nav-item menu-items' }>
-          <div className={basicUiMenuOpen ?
-            'nav-link menu-expanded' :
-            'nav-link' }
-          onClick={() => toggleMenuState('basicUiMenuOpen')}
-          data-toggle="collapse">
+          <Link className='nav-link' to="/siswa">
             <span className="menu-icon">
               <i className="mdi mdi-laptop"></i>
             </span>
-            <span className="menu-title"><Trans>Basic UI Elements</Trans></span>
-            <i className="menu-arrow"></i>
-          </div>
-          <Collapse in={ basicUiMenuOpen }>
-            <div>
-              <ul className="nav flex-column sub-menu">
-                <li className="nav-item">
-                  <Link className={isPathActive('/basic-ui/buttons') ?
-                  'nav-link active' :
-                  'nav-link'}
-                  to="/basic-ui/buttons"><Trans>Buttons</Trans></Link></li>
-                <li className="nav-item">
-                  <Link
-                    className={isPathActive('/basic-ui/dropdowns') ?
-                    'nav-link active' : 'nav-link' } to="/basic-ui/dropdowns">
-                    <Trans>Dropdowns</Trans></Link></li>
-                <li className="nav-item">
-                  <Link className={isPathActive('/basic-ui/typography') ?
-                  'nav-link active' : 'nav-link' } to="/basic-ui/typography">
-                    <Trans>Typography</Trans></Link></li>
-              </ul>
-            </div>
-          </Collapse>
+            <span className="menu-title"><Trans>Siswa</Trans></span>
+          </Link>
         </li>
         <li
           className={isPathActive('/form-elements') ?

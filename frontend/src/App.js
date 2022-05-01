@@ -6,10 +6,10 @@ import Footer from './shared/Footer';
 import AppRoutes from './AppRoutes';
 import {useLocation} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 
 const App = () => {
-  const login = useSelector((state) => state.login);
+  // const login = useSelector((state) => state.login);
   const [fullPage, setFullPage] = useState(true);
   const navbarComponent = fullPage ? '' : <Navbar/>;
   const sidebarComponent = fullPage ? '' : <Sidebar/>;
@@ -26,9 +26,9 @@ const App = () => {
 
   const onRouteChanged = () => {
     window.scrollTo(0, 0);
-    const fullPageLayoutRoutes = ['/login'];
+    const fullPageLayoutRoutes = ['/login', '/error-404'];
     for ( let i = 0; i < fullPageLayoutRoutes.length; i++ ) {
-      if (location.pathname === fullPageLayoutRoutes[i] && !login) {
+      if (location.pathname === fullPageLayoutRoutes[i]) {
         setFullPage(true);
         document.querySelector('.page-body-wrapper')
             .classList.add('full-page-wrapper');
