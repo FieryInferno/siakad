@@ -12,4 +12,5 @@ module.exports = (app) => {
   });
 
   app.get('/api/siswa', [verifyToken], siswa.getAll);
+  app.post('/api/siswa', [verifyToken], siswa.create);
 };

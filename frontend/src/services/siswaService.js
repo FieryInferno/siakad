@@ -1,6 +1,7 @@
 import http from '../http-common';
 
-const getAll = (data) => http.get('/siswa');
-const dataService = {getAll};
+const getAll = () => http.get('/siswa');
+const create = (data) => http.post('/siswa', data);
+const dataService = {getAll, create};
 
 export default dataService;

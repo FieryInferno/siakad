@@ -1,4 +1,4 @@
-import {RETRIEVE_SISWA} from './types';
+import {RETRIEVE_SISWA, CREATE_SISWA} from './types';
 import dataService from '../services/siswaService';
 
 export const retrieveSiswa = () => async (dispatch) => {
@@ -8,7 +8,20 @@ export const retrieveSiswa = () => async (dispatch) => {
       type: RETRIEVE_SISWA,
       payload: res.data,
     });
-    return Promise.resolve(res.data);
+    return Promise.resolve();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const createSiswa = (payload) => async (dispatch) => {
+  try {
+    const res = await dataService.create(payload);
+    dispatch({
+      type: CREATE_SISWA,
+      payload: res.data,
+    });
+    return Promise.resolve();
   } catch (error) {
     return Promise.reject(error);
   }

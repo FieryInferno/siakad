@@ -9,7 +9,8 @@ export const Siswa = () => {
   const siswa = useSelector((state) => state.siswa);
 
   useEffect(() => {
-    dispatch(retrieveSiswa());
+    dispatch(retrieveSiswa())
+        .catch((e) => console.log(e));
   }, []);
 
   return (
@@ -51,8 +52,8 @@ export const Siswa = () => {
                   <td> {siswa.nama} </td>
                   <td> {siswa.tempat_lahir} </td>
                   <td> {siswa.tanggal_lahir} </td>
-                  <td> {siswa.agama.nama} </td>
-                  <td> {siswa.rombel.nama} </td>
+                  <td> {siswa.agama?.nama} </td>
+                  <td> {siswa.rombel?.nama} </td>
                 </tr>
               ))}
             </tbody>

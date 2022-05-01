@@ -6,3 +6,11 @@ exports.getAll = (req, res) => {
       .then((siswa) => res.status(200).send(siswa))
       .catch((e) => res.status(500).send({message: e.message}));
 };
+
+exports.create = (req, res) => {
+  Siswa.create(req.body)
+      .then((data) => res.status(200).send(data))
+      .catch((err) => {
+        res.status(500).send({message: err.message || 'Some error occured'});
+      });
+};

@@ -1,4 +1,4 @@
-import {RETRIEVE_SISWA} from '../actions/types';
+import {RETRIEVE_SISWA, CREATE_SISWA} from '../actions/types';
 
 const initialState = [];
 
@@ -8,6 +8,8 @@ const siswaReducer = (siswa = initialState, action) => {
   switch (type) {
     case RETRIEVE_SISWA:
       return payload;
+    case CREATE_SISWA:
+      return [...siswa, payload];
     default:
       return siswa;
   }
