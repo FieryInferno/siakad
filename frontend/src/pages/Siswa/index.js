@@ -60,6 +60,12 @@ export const Siswa = () => {
                 <td> {siswa.agama?.nama} </td>
                 <td> {siswa.rombel?.nama} </td>
                 <td>
+                  <Link
+                    className="btn btn-success btn-rounded"
+                    to={`/siswa/${siswa.id}`}
+                  >
+                    <i className=' mdi mdi-pencil'></i>
+                  </Link>
                   <Button
                     className="btn btn-danger btn-rounded"
                     onClick={() => removeSiswa(siswa.id)}

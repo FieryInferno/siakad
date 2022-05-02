@@ -1,7 +1,10 @@
 import React from 'react';
 import {Form} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
 
 const SiakadForm = ({formContent, onSubmit}) => {
+  const history = useHistory();
+
   return (
     <>
       {formContent.map((form, index) => (
@@ -10,7 +13,9 @@ const SiakadForm = ({formContent, onSubmit}) => {
           {form.type === 'select' ?
             (
               <select
-                className="form-control" id={form.id} onChange={form.onChange}>
+                className="form-control" id={form.id} onChange={form.onChange}
+                value={form.value}
+              >
                 <option>{form.placeholder}</option>
                 {form.data.map((option, index) => (
                   <option key={index} value={option.id}>
@@ -26,6 +31,7 @@ const SiakadForm = ({formContent, onSubmit}) => {
                 id={form.id}
                 placeholder={form.placeholder}
                 onChange={form.onChange}
+                value={form.value}
               />
             )
           }
@@ -33,7 +39,9 @@ const SiakadForm = ({formContent, onSubmit}) => {
       ))}
       <button
         className="btn btn-primary mr-2" onClick={onSubmit}>Submit</button>
-      <button className="btn btn-dark">Cancel</button>
+      <button className="btn btn-dark" onClick={() => history.goBack()}>
+        Cancel
+      </button>
     </>
   );
 };

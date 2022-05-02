@@ -4,8 +4,8 @@ import SiakadForm from '../../component/SiakadForm';
 import {useDispatch, useSelector} from 'react-redux';
 import {retrieveAgama} from '../../actions/agama';
 import {retrieveRombel} from '../../actions/rombel';
-import {createSiswa} from '../../actions/siswa';
-import {useHistory} from 'react-router-dom';
+import {createSiswa, retrieveDetailSiswa} from '../../actions/siswa';
+import {useHistory, useParams} from 'react-router-dom';
 
 export const FormSiswa = () => {
   const dispatch = useDispatch();
@@ -13,10 +13,17 @@ export const FormSiswa = () => {
   const rombel = useSelector((state) => state.rombel);
   const [values, setValues] = useState();
   const history = useHistory();
+  const {id} = useParams();
 
   useEffect(() => {
     dispatch(retrieveAgama());
     dispatch(retrieveRombel());
+
+    if (id) {
+      dispatch(retrieveDetailSiswa(id))
+          .then((data) => setValues(data))
+          .catch((e) => console.log(e));
+    }
   }, []);
 
   const onSubmit = () => {
@@ -38,6 +45,7 @@ export const FormSiswa = () => {
               ...values,
               nim: e.target.value,
             }),
+            value: values?.nim,
           },
           {
             id: 'nama',
@@ -48,6 +56,7 @@ export const FormSiswa = () => {
               ...values,
               nama: e.target.value,
             }),
+            value: values?.nama,
           },
           {
             id: 'tempatLahir',
@@ -58,6 +67,7 @@ export const FormSiswa = () => {
               ...values,
               tempat_lahir: e.target.value,
             }),
+            value: values?.tempat_lahir,
           },
           {
             id: 'tanggalLahir',
@@ -68,6 +78,7 @@ export const FormSiswa = () => {
               ...values,
               tanggal_lahir: e.target.value,
             }),
+            value: values?.tanggal_lahir,
           },
           {
             id: 'agama',
@@ -79,6 +90,7 @@ export const FormSiswa = () => {
               ...values,
               agamaId: e.target.value,
             }),
+            value: values?.agamaId,
           },
           {
             id: 'rombel',
@@ -90,6 +102,7 @@ export const FormSiswa = () => {
               ...values,
               rombelId: e.target.value,
             }),
+            value: values?.rombelId,
           },
         ]}
         onSubmit={onSubmit}

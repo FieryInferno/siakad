@@ -2,6 +2,7 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
 export const RETRIEVE_SISWA = 'RETRIEVE_SISWA';
+export const RETRIEVE_DETAIL_SISWA = 'RETRIEVE_DETAIL_SISWA';
 export const CREATE_SISWA = 'CREATE_SISWA';
 export const DELETE_SISWA = 'DELETE_SISWA';
 
