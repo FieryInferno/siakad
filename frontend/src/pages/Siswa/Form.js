@@ -2,33 +2,28 @@ import React, {useEffect, useState} from 'react';
 import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
 import {useDispatch} from 'react-redux';
-import {retrieveAgama} from '../../actions/agama';
-import {retrieveRombel} from '../../actions/rombel';
 import {
-  createSiswa, retrieveDetailSiswa, updateSiswa,
-} from '../../actions/siswa';
+  createGuru, retrieveDetailGuru, updateGuru,
+} from '../../actions/guru';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormSiswa = () => {
+export const FormGuru = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState();
   const history = useHistory();
   const {id} = useParams();
 
   useEffect(() => {
-    dispatch(retrieveAgama());
-    dispatch(retrieveRombel());
-
     if (id) {
-      dispatch(retrieveDetailSiswa(id))
+      dispatch(retrieveDetailGuru(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateSiswa(values) : createSiswa(values))
-        .then(() => history.push('/siswa'))
+    dispatch(id ? updateGuru(values) : createGuru(values))
+        .then(() => history.push('/guru'))
         .catch((e) => console.log(e));
   };
 
@@ -108,4 +103,4 @@ export const FormSiswa = () => {
   );
 };
 
-export default FormSiswa;
+export default FormGuru;
