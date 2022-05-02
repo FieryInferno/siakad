@@ -1,6 +1,7 @@
 const {authJwt} = require('../middleware');
 const {verifyToken} = authJwt;
 const siswa = require('../controller/siswa.controller');
+const {body} = require('express-validator');
 
 module.exports = (app) => {
   app.use((req, res, next) => {
@@ -12,5 +13,15 @@ module.exports = (app) => {
   });
 
   app.get('/api/siswa', [verifyToken], siswa.getAll);
-  app.post('/api/siswa', [verifyToken], siswa.create);
+  app.post(
+      '/api/siswa',
+      [verifyToken],
+      body('nim').notEmpty(),
+      body('nama').notEmpty(),
+      body('tempat_lahir').notEmpty(),
+      body('tanggal_lahir').notEmpty(),
+      body('agamaId').notEmpty(),
+      body('rombelId').notEmpty(),
+      siswa.create,
+  );
 };

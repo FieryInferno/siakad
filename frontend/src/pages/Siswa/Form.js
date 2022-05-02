@@ -76,7 +76,10 @@ export const FormSiswa = () => {
               type: 'select',
               placeholder: 'Masukan Agama',
               data: agama,
-              onChange: (e) => console.log(e),
+              onChange: (e) => setValues({
+                ...values,
+                agamaId: e.target.value,
+              }),
             },
             {
               id: 'rombel',
