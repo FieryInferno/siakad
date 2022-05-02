@@ -44,3 +44,15 @@ exports.get = (req, res) => {
         res.status(500).send({message: e.message || 'Some error occured'});
       });
 };
+
+exports.update = (req, res) => {
+  const id = req.params.id;
+
+  Siswa.update(req.body, {where: {id: id}})
+      .then((data) => {
+        res.send({message: 'Siswa was updated successfully.'});
+      })
+      .catch((err) => {
+        res.status(500).send({message: err.message || 'Some error occured'});
+      });
+};

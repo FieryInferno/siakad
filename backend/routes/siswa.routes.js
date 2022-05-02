@@ -26,4 +26,5 @@ module.exports = (app) => {
   );
   app.delete('/api/siswa/:id', [verifyToken], siswa.delete);
   app.get('/api/siswa/:id', [verifyToken], siswa.get);
+  app.put('/api/siswa/:id', [verifyToken], siswa.update);
 };

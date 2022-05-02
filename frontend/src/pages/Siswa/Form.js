@@ -4,7 +4,9 @@ import SiakadForm from '../../component/SiakadForm';
 import {useDispatch, useSelector} from 'react-redux';
 import {retrieveAgama} from '../../actions/agama';
 import {retrieveRombel} from '../../actions/rombel';
-import {createSiswa, retrieveDetailSiswa} from '../../actions/siswa';
+import {
+  createSiswa, retrieveDetailSiswa, updateSiswa,
+} from '../../actions/siswa';
 import {useHistory, useParams} from 'react-router-dom';
 
 export const FormSiswa = () => {
@@ -27,7 +29,7 @@ export const FormSiswa = () => {
   }, []);
 
   const onSubmit = () => {
-    dispatch(createSiswa(values))
+    dispatch(id ? updateSiswa(values) : createSiswa(values))
         .then(() => history.push('/siswa'))
         .catch((e) => console.log(e));
   };

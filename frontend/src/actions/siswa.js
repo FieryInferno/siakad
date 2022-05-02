@@ -1,6 +1,6 @@
 import {
   RETRIEVE_SISWA, CREATE_SISWA, DELETE_SISWA,
-  RETRIEVE_DETAIL_SISWA,
+  RETRIEVE_DETAIL_SISWA, UPDATE_SISWA,
 } from './types';
 import dataService from '../services/siswaService';
 
@@ -35,6 +35,19 @@ export const createSiswa = (payload) => async (dispatch) => {
     const res = await dataService.create(payload);
     dispatch({
       type: CREATE_SISWA,
+      payload: res.data,
+    });
+    return Promise.resolve();
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const updateSiswa = (payload) => async (dispatch) => {
+  try {
+    const res = await dataService.update(payload);
+    dispatch({
+      type: UPDATE_SISWA,
       payload: res.data,
     });
     return Promise.resolve();
