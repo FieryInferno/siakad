@@ -13,11 +13,14 @@ db.siswa = require('../models/siswa.model.js')(sequelize, Sequelize);
 db.agama = require('../models/agama.model.js')(sequelize, Sequelize);
 db.rombel = require('../models/rombel.model.js')(sequelize, Sequelize);
 db.jurusan = require('../models/jurusan.model.js')(sequelize, Sequelize);
+db.guru = require('../models/guru.model.js')(sequelize, Sequelize);
 db.siswa.belongsTo(db.agama);
 db.agama.hasOne(db.siswa);
 db.siswa.belongsTo(db.rombel);
 db.rombel.hasOne(db.siswa);
 db.rombel.belongsTo(db.jurusan);
 db.jurusan.hasOne(db.rombel);
+db.guru.belongsTo(db.user);
+db.user.hasOne(db.guru);
 
 module.exports = db;

@@ -12,6 +12,7 @@ require('./routes/auth.routes')(app);
 require('./routes/siswa.routes')(app);
 require('./routes/agama.routes')(app);
 require('./routes/rombel.routes')(app);
+require('./routes/guru.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;
