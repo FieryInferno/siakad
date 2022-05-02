@@ -7,5 +7,11 @@ export const CREATE_SISWA = 'CREATE_SISWA';
 export const UPDATE_SISWA = 'UPDATE_SISWA';
 export const DELETE_SISWA = 'DELETE_SISWA';
 
+export const RETRIEVE_GURU = 'RETRIEVE_GURU';
+export const RETRIEVE_DETAIL_GURU = 'RETRIEVE_DETAIL_GURU';
+export const CREATE_GURU = 'CREATE_GURU';
+export const UPDATE_GURU = 'UPDATE_GURU';
+export const DELETE_GURU = 'DELETE_GURU';
+
 export const RETRIEVE_AGAMA = 'RETRIEVE_AGAMA';
 export const RETRIEVE_ROMBEL = 'RETRIEVE_ROMBEL';
