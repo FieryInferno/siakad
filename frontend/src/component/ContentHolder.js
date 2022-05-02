@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 
-const ContentHolder = ({button, content}) => {
+const ContentHolder = ({children}) => {
   return (
     <>
       <Breadcrumb title='Data Siswa' options={['Dashboard', 'Siswa']} />
@@ -9,8 +9,7 @@ const ContentHolder = ({button, content}) => {
         <div className="col-lg-12 grid-margin stretch-card">
           <div className="card">
             <div className="card-body">
-              {button}
-              {content}
+              {children}
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ module.exports = (app) => {
     next();
   });
 
+  app.delete('/api/siswa/:id', [verifyToken], siswa.delete);
   app.get('/api/siswa', [verifyToken], siswa.getAll);
   app.post(
       '/api/siswa',

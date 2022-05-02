@@ -21,3 +21,13 @@ exports.create = (req, res) => {
         res.status(500).send({message: err.message || 'Some error occured'});
       });
 };
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Siswa.destroy({where: {id: id}})
+      .then(() => res.send({message: 'Siswa berhasi dihapus'}))
+      .catch((e) => {
+        res.status(500).send({message: e.message || 'Some error occured'});
+      });
+};
