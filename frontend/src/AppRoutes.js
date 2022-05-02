@@ -11,6 +11,7 @@ const Siswa = lazy(() => import('./pages/Siswa/index'));
 const FormSiswa = lazy(() => import('./pages/Siswa/Form'));
 
 const Guru = lazy(() => import('./pages/Guru/index'));
+const FormGuru = lazy(() => import('./pages/Siswa/Form'));
 
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
@@ -30,6 +31,8 @@ const AppRoutes = (props) => {
             <Route exact path="/siswa/:id" component={ FormSiswa } />
 
             <Route exact path="/guru" component={ Guru } />
+            <Route exact path="/guru/tambah" component={ FormGuru } />
+            <Route exact path="/guru/:id" component={ FormGuru } />
 
             <Route exact path="/error-404" component={ Error404 } />
           </>
