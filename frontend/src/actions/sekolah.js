@@ -8,7 +8,7 @@ export const retrieveSekolah = () => async (dispatch) => {
       type: RETRIEVE_SEKOLAH,
       payload: res.data,
     });
-    return Promise.resolve();
+    return Promise.resolve(res.data);
   } catch (error) {
     return Promise.reject(error);
   }

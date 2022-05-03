@@ -8,9 +8,14 @@ export const FormSekolah = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState();
 
+  console.log(values);
+
   useEffect(() => {
     dispatch(retrieveSekolah())
-        .then((data) => setValues(data))
+        .then((data) => {
+          console.log(data);
+          setValues(data);
+        })
         .catch((e) => console.log(e));
   }, []);
 
@@ -32,7 +37,7 @@ export const FormSekolah = () => {
               ...values,
               namaSekolah: e.target.value,
             }),
-            value: values?.namaSekolah,
+            value: values?.nama,
           },
           {
             id: 'alamatSekolah',
@@ -43,7 +48,7 @@ export const FormSekolah = () => {
               ...values,
               alamatSekolah: e.target.value,
             }),
-            value: values?.alamatSekolah,
+            value: values?.alamat,
           },
           {
             id: 'email',
@@ -58,14 +63,14 @@ export const FormSekolah = () => {
           },
           {
             id: 'telepon',
-            label: 'Username',
+            label: 'Telepon',
             type: 'text',
-            placeholder: 'Masukan Username',
+            placeholder: 'Masukan Telepon',
             onChange: (e) => setValues({
               ...values,
               telepon: e.target.value,
             }),
-            value: values?.user.telepon,
+            value: values?.telepon,
           },
           {
             id: 'jenjang',
@@ -75,7 +80,7 @@ export const FormSekolah = () => {
             onChange: (e) => setValues({
               ...values,
               jenjang: {
-                ...values?.user,
+                ...values,
                 jenjang: e.target.value,
               },
             }),
@@ -93,6 +98,7 @@ export const FormSekolah = () => {
                 nama: 'SMA/SMK',
               },
             ],
+            value: values?.jenjang,
           },
         ]}
         onSubmit={onSubmit}

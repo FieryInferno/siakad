@@ -13,6 +13,7 @@ require('./routes/siswa.routes')(app);
 require('./routes/agama.routes')(app);
 require('./routes/rombel.routes')(app);
 require('./routes/guru.routes')(app);
+require('./routes/sekolah.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;
@@ -20,6 +21,7 @@ require('./routes/guru.routes')(app);
 // const Rombel = db.rombel;
 // const Agama = db.agama;
 // const Siswa = db.siswa;
+// const Sekolah = db.sekolah;
 // const bcrypt = require('bcryptjs');
 
 // const initialDatabase = () => {
@@ -48,6 +50,14 @@ require('./routes/guru.routes')(app);
 //     foto: '',
 //     agamaId: 1,
 //     rombelId: 1,
+//   });
+
+//   Sekolah.create({
+//     nama: 'SMAN 1 JALANCAGAK',
+//     alamat: 'Jalancagak',
+//     email: 'smajalancagak@gmail.com',
+//     telepon: '085723853284',
+//     jenjang: 'sma',
 //   });
 // };
 
