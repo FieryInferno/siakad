@@ -85,6 +85,11 @@ const Sidebar = (props) => {
               icon: <i className="mdi mdi-playlist-play"></i>,
               title: 'Guru',
             },
+            {
+              path: '/sekolah',
+              icon: <i className="mdi mdi-table-large"></i>,
+              title: 'Sekolah',
+            },
           ]}
         />
       </ul>

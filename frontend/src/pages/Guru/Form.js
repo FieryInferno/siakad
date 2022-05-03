@@ -10,9 +10,6 @@ import {useHistory, useParams} from 'react-router-dom';
 export const FormGuru = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({user: {}});
-
-  console.log(values);
-
   const history = useHistory();
   const {id} = useParams();
 
