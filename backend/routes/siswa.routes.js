@@ -24,7 +24,17 @@ module.exports = (app) => {
       body('rombelId').notEmpty(),
       siswa.create,
   );
-  app.delete('/api/siswa/:id', [verifyToken], siswa.delete);
+  app.put(
+      '/api/siswa/:id',
+      [verifyToken],
+      body('nim').notEmpty(),
+      body('nama').notEmpty(),
+      body('tempat_lahir').notEmpty(),
+      body('tanggal_lahir').notEmpty(),
+      body('agamaId').notEmpty(),
+      body('rombelId').notEmpty(),
+      siswa.update,
+  );
   app.get('/api/siswa/:id', [verifyToken], siswa.get);
-  app.put('/api/siswa/:id', [verifyToken], siswa.update);
+  app.delete('/api/siswa/:id', [verifyToken], siswa.delete);
 };

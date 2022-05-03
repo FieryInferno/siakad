@@ -25,5 +25,15 @@ module.exports = (app) => {
   );
   app.delete('/api/guru/:id', [verifyToken], guru.delete);
   app.get('/api/guru/:id', [verifyToken], guru.get);
-  app.put('/api/guru/:id', [verifyToken], guru.update);
+  app.put(
+      '/api/guru/:id',
+      [verifyToken],
+      body('nim').notEmpty(),
+      body('nama').notEmpty(),
+      body('tempat_lahir').notEmpty(),
+      body('tanggal_lahir').notEmpty(),
+      body('agamaId').notEmpty(),
+      body('rombelId').notEmpty(),
+      guru.update,
+  );
 };

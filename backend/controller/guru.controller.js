@@ -17,12 +17,13 @@ exports.create = (req, res) => {
     return res.status(400).send({errors: errors.array()});
   }
 
-  const {nuptk, nama, username, password, gender} = req.body;
+  const {nuptk, gender, user} = req.body;
 
   User.create({
-    username: username,
-    password: bcrypt.hashSync(password, 8),
-    name: nama,
+    username: user.username,
+    password: bcrypt.hashSync(user.password, 8),
+    name: user.name,
+    role: 'guru',
   })
       .then((user) => {
         Guru.create({
@@ -69,12 +70,28 @@ exports.get = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
+  const {nuptk, gender, user} = req.body;
 
-  Guru.update(req.body, {where: {id: id}})
-      .then((data) => {
-        res.send({message: 'Guru was updated successfully.'});
-      })
+  Guru.update({
+    nuptk: nuptk,
+    gender: gender,
+  }, {where: {id: id}})
       .catch((err) => {
-        res.status(500).send({message: err.message || 'Some error occured'});
+        return res.status(500).send({
+          message: err.message || 'Some error occured',
+        });
       });
+
+  if (user.password) {
+    user.password = bcrypt.hashSync(user.password, 8);
+  }
+
+  User.update(user, {where: {id: user.id}})
+      .catch((err) => {
+        return res.status(500).send({
+          message: err.message || 'Some error occured',
+        });
+      });
+
+  return res.status(200).send({message: 'Guru was updated successfully.'});
 };

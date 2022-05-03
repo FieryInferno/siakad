@@ -49,7 +49,10 @@ export const FormGuru = () => {
             placeholder: 'Masukan Nama',
             onChange: (e) => setValues({
               ...values,
-              nama: e.target.value,
+              user: {
+                ...values.user,
+                name: e.target.value,
+              },
             }),
             value: values?.user.name,
           },
@@ -81,7 +84,10 @@ export const FormGuru = () => {
             placeholder: 'Masukan Username',
             onChange: (e) => setValues({
               ...values,
-              username: e.target.value,
+              user: {
+                ...values.user,
+                username: e.target.value,
+              },
             }),
             value: values?.user.username,
           },
@@ -92,7 +98,10 @@ export const FormGuru = () => {
             placeholder: 'Masukan Password',
             onChange: (e) => setValues({
               ...values,
-              password: e.target.value,
+              user: {
+                ...values.user,
+                password: e.target.value,
+              },
             }),
           },
         ]}
