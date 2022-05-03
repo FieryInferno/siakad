@@ -17,28 +17,15 @@ exports.create = (req, res) => {
     return res.status(400).send({errors: errors.array()});
   }
 
-  const {nuptk, gender, user} = req.body;
+  req.body.user.role = 'guru';
 
-  User.create({
-    username: user.username,
-    password: bcrypt.hashSync(user.password, 8),
-    name: user.name,
-    role: 'guru',
-  })
-      .then((user) => {
-        Guru.create({
-          nuptk: nuptk,
-          gender: gender,
-          userId: user.id,
-        })
-            .then((guru) => {
-              res.status(200).send(guru);
-            })
-            .catch((err) => {
-              res.status(500).send({
-                message: err.message || 'Some error occured',
-              });
-            });
+  if (req.body.user.password) {
+    req.body.user.password = bcrypt.hashSync(req.body.user.password, 8);
+  }
+
+  Guru.create(req.body, {include: [{association: Guru.user}]})
+      .then((guru) => {
+        res.status(200).send(guru);
       })
       .catch((err) => {
         res.status(500).send({message: err.message || 'Some error occured'});
