@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import {Dropdown} from 'react-bootstrap';
 import {Trans} from 'react-i18next';
@@ -7,6 +7,7 @@ import Menu from '../component/Menu';
 
 const Sidebar = (props) => {
   const user = useSelector((state) => state.login);
+  const [dropdown, setDropdown] = useState({dataMaster: false});
 
   return (
     <nav className="sidebar sidebar-offcanvas" id="sidebar">
@@ -90,7 +91,41 @@ const Sidebar = (props) => {
               icon: <i className="mdi mdi-table-large"></i>,
               title: 'Sekolah',
             },
+            {
+              content: [
+                {
+                  label: 'Mata Pelajaran',
+                  path: '/data_master/mata_pelajaran',
+                },
+                {
+                  label: 'Kelas',
+                  path: '/data_master/kelas',
+                },
+                {
+                  label: 'Jurusan',
+                  path: '/data_master/jurusan',
+                },
+                {
+                  label: 'Tahun Akademik',
+                  path: '/data_master/tahun_akademik',
+                },
+                {
+                  label: 'Rombongan Belajar',
+                  path: '/data_master/rombel',
+                },
+                {
+                  label: 'Kurikulum',
+                  path: '/data_master/kurikulum',
+                },
+              ],
+              icon: <i className="mdi mdi-chart-bar"></i>,
+              title: 'Data Master',
+              type: 'dropdown',
+              menu: 'dataMaster',
+            },
           ]}
+          dropdown={dropdown}
+          setDropdown={setDropdown}
         />
       </ul>
     </nav>

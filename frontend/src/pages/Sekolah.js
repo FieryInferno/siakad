@@ -6,14 +6,17 @@ import {retrieveSekolah, updateSekolah} from '../actions/sekolah';
 
 export const FormSekolah = () => {
   const dispatch = useDispatch();
-  const [values, setValues] = useState();
+  const [values, setValues] = useState({
+    nama: '',
+    alamat: '',
+    email: '',
+    telepon: '',
+    jenjang: '',
+  });
 
   useEffect(() => {
     dispatch(retrieveSekolah())
-        .then((data) => {
-          console.log(data);
-          setValues(data);
-        })
+        .then((data) => setValues(data))
         .catch((e) => console.log(e));
   }, []);
 
