@@ -3,11 +3,11 @@ import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
 import {useDispatch} from 'react-redux';
 import {
-  createMataPelajaran, retrieveDetailMataPelajaran, updateMataPelajaran,
-} from '../../actions/mataPelajaran';
+  createJurusan, retrieveDetailJurusan, updateJurusan,
+} from '../../actions/jurusan';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormMataPelajaran = () => {
+export const FormJurusan = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     kode: '',
@@ -18,15 +18,15 @@ export const FormMataPelajaran = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(retrieveDetailMataPelajaran(id))
+      dispatch(retrieveDetailJurusan(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateMataPelajaran(values) : createMataPelajaran(values))
-        .then(() => history.push('/data_master/mata_pelajaran'))
+    dispatch(id ? updateJurusan(values) : createJurusan(values))
+        .then(() => history.push('/data_master/jurusan'))
         .catch((e) => console.log(e));
   };
 
@@ -36,9 +36,9 @@ export const FormMataPelajaran = () => {
         formContent={[
           {
             id: 'kode',
-            label: 'Kode Ruangan',
+            label: 'Kode Jurusan',
             type: 'text',
-            placeholder: 'Masukan Kode Ruangan',
+            placeholder: 'Masukan Kode Jurusan',
             onChange: (e) => setValues({
               ...values,
               kode: e.target.value,
@@ -47,9 +47,9 @@ export const FormMataPelajaran = () => {
           },
           {
             id: 'nama',
-            label: 'Nama Ruangan',
+            label: 'Nama Jurusan',
             type: 'text',
-            placeholder: 'Masukan Nama Ruangan',
+            placeholder: 'Masukan Nama Jurusan',
             onChange: (e) => setValues({
               ...values,
               nama: e.target.value,
@@ -63,4 +63,4 @@ export const FormMataPelajaran = () => {
   );
 };
 
-export default FormMataPelajaran;
+export default FormJurusan;

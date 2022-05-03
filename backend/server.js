@@ -35,7 +35,10 @@ require('./routes/jurusan.routes')(app);
 //     role: 'admin',
 //   });
 
-//   Jurusan.create({nama: 'REKAYASA PERANGKAT LUNAK'});
+//   Jurusan.create({
+//     kode: 'RPL',
+//     nama: 'REKAYASA PERANGKAT LUNAK',
+//   });
 //   Agama.create({nama: 'ISLAM'});
 
 //   Rombel.create({
