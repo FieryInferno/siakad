@@ -17,6 +17,9 @@ const FormGuru = lazy(() => import('./pages/Guru/Form'));
 const MataPelajaran = lazy(() => import('./pages/MataPelajaran/index'));
 const FormMataPelajaran = lazy(() => import('./pages/MataPelajaran/Form'));
 
+const Kelas = lazy(() => import('./pages/Kelas/index'));
+const FormKelas = lazy(() => import('./pages/Kelas/Form'));
+
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
@@ -38,6 +41,14 @@ const AppRoutes = (props) => {
             <Route exact path="/guru" component={ Guru } />
             <Route exact path="/guru/tambah" component={ FormGuru } />
             <Route exact path="/guru/edit/:id" component={ FormGuru } />
+
+            <Route exact path="/data_master/kelas" component={ Kelas } />
+            <Route
+              exact path="/data_master/kelas/tambah" component={ FormKelas }
+            />
+            <Route
+              exact path="/data_master/kelas/edit/:id" component={ FormKelas }
+            />
 
             <Route
               exact
