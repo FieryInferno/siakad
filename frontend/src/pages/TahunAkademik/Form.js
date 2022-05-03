@@ -36,25 +36,35 @@ export const FormTahunAkademik = () => {
         formContent={[
           {
             id: 'kode',
-            label: 'Kode Tahun Akademik',
+            label: 'Tahun Akademik',
             type: 'text',
-            placeholder: 'Masukan Kode Tahun Akademik',
+            placeholder: 'Masukan Tahun Akademik',
             onChange: (e) => setValues({
               ...values,
-              kode: e.target.value,
+              tahunAkademik: e.target.value,
             }),
-            value: values?.kode,
+            value: values?.tahunAkademik,
           },
           {
-            id: 'nama',
-            label: 'Nama Tahun Akademik',
-            type: 'text',
-            placeholder: 'Masukan Nama Tahun Akademik',
+            id: 'isAktif',
+            label: 'Is Aktif',
+            type: 'select',
+            placeholder: 'Masukan Is Aktif',
             onChange: (e) => setValues({
               ...values,
-              nama: e.target.value,
+              isAktif: e.target.value,
             }),
-            value: values?.nama,
+            value: values?.isAktif,
+            data: [
+              {
+                id: 'y',
+                nama: 'Ya',
+              },
+              {
+                id: 't',
+                nama: 'Tidak',
+              },
+            ],
           },
         ]}
         onSubmit={onSubmit}

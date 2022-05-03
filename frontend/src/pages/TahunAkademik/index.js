@@ -46,7 +46,7 @@ export const TahunAkademik = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td> {tahunAkademik.tahunAkademik} </td>
-                <td> {tahunAkademik.isAktif} </td>
+                <td> {tahunAkademik.isAktif === 'y' ? 'Ya' : 'Tidak'} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"

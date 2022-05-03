@@ -16,15 +16,15 @@ module.exports = (app) => {
   app.post(
       '/api/tahun_akademik',
       [verifyToken],
-      body('kode').notEmpty(),
-      body('nama').notEmpty(),
+      body('tahunAkademik').notEmpty(),
+      body('isAktif').notEmpty(),
       tahunAkademik.create,
   );
   app.put(
       '/api/tahun_akademik/:id',
       [verifyToken],
-      body('kode').notEmpty(),
-      body('nama').notEmpty(),
+      body('tahunAkademik').notEmpty(),
+      body('isAktif').notEmpty(),
       tahunAkademik.update,
   );
   app.get('/api/tahun_akademik/:id', [verifyToken], tahunAkademik.get);
