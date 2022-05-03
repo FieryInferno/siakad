@@ -15,6 +15,8 @@ db.rombel = require('../models/rombel.model.js')(sequelize, Sequelize);
 db.jurusan = require('../models/jurusan.model.js')(sequelize, Sequelize);
 db.guru = require('../models/guru.model.js')(sequelize, Sequelize);
 db.sekolah = require('../models/sekolah.model.js')(sequelize, Sequelize);
+db.mataPelajaran =
+require('../models/mataPelajaran.model.js')(sequelize, Sequelize);
 
 db.siswa.belongsTo(db.agama);
 db.agama.hasOne(db.siswa);
