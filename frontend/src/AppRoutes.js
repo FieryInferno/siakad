@@ -50,7 +50,7 @@ const AppRoutes = (props) => {
             <Route
               exact
               path="/data_master/mata_pelajaran/edit/:id"
-              scomponent={ FormMataPelajaran }
+              component={ FormMataPelajaran }
             />
 
             <Route exact path="/error-404" component={ Error404 } />

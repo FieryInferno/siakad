@@ -9,7 +9,10 @@ import {useHistory, useParams} from 'react-router-dom';
 
 export const FormMataPelajaran = () => {
   const dispatch = useDispatch();
-  const [values, setValues] = useState();
+  const [values, setValues] = useState({
+    kode: '',
+    nama: '',
+  });
   const history = useHistory();
   const {id} = useParams();
 

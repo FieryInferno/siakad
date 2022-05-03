@@ -50,7 +50,6 @@ const Menu = ({content, dropdown, setDropdown}) => {
       if (obj.content) {
         obj.content.map((menu) => {
           if (isPathActive(menu.path)) {
-            console.log(isPathActive);
             setDropdown({[obj.menu]: true});
           }
         });
