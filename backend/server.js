@@ -15,6 +15,7 @@ require('./routes/rombel.routes')(app);
 require('./routes/guru.routes')(app);
 require('./routes/sekolah.routes')(app);
 require('./routes/mataPelajaran.routes')(app);
+require('./routes/kelas.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;

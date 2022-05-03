@@ -36,9 +36,9 @@ export const FormMataPelajaran = () => {
         formContent={[
           {
             id: 'kode',
-            label: 'Kode Mapel',
+            label: 'Kode Ruangan',
             type: 'text',
-            placeholder: 'Masukan Kode Mapel',
+            placeholder: 'Masukan Kode Ruangan',
             onChange: (e) => setValues({
               ...values,
               kode: e.target.value,
@@ -47,9 +47,9 @@ export const FormMataPelajaran = () => {
           },
           {
             id: 'nama',
-            label: 'Mata Pelajaran',
+            label: 'Nama Ruangan',
             type: 'text',
-            placeholder: 'Masukan Mata Pelajaran',
+            placeholder: 'Masukan Nama Ruangan',
             onChange: (e) => setValues({
               ...values,
               nama: e.target.value,
