@@ -45,8 +45,8 @@ export const MataPelajaran = () => {
             {mataPelajaran.map((mataPelajaran, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td> {mataPelajaran.kodeMapel} </td>
-                <td> {mataPelajaran.mataPelajaran} </td>
+                <td> {mataPelajaran.kode} </td>
+                <td> {mataPelajaran.nama} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"

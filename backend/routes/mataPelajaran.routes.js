@@ -16,23 +16,15 @@ module.exports = (app) => {
   app.post(
       '/api/mata_pelajaran',
       [verifyToken],
-      body('nim').notEmpty(),
+      body('kode').notEmpty(),
       body('nama').notEmpty(),
-      body('tempat_lahir').notEmpty(),
-      body('tanggal_lahir').notEmpty(),
-      body('agamaId').notEmpty(),
-      body('rombelId').notEmpty(),
       mataPelajaran.create,
   );
   app.put(
       '/api/mata_pelajaran/:id',
       [verifyToken],
-      body('nim').notEmpty(),
+      body('kode').notEmpty(),
       body('nama').notEmpty(),
-      body('tempat_lahir').notEmpty(),
-      body('tanggal_lahir').notEmpty(),
-      body('agamaId').notEmpty(),
-      body('rombelId').notEmpty(),
       mataPelajaran.update,
   );
   app.get('/api/mata_pelajaran/:id', [verifyToken], mataPelajaran.get);
