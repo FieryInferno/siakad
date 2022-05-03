@@ -62,7 +62,7 @@ export const Siswa = () => {
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"
-                    to={`/siswa/${siswa.id}`}
+                    to={`/siswa/edit/${siswa.id}`}
                   >
                     <i className=' mdi mdi-pencil'></i>
                   </Link>

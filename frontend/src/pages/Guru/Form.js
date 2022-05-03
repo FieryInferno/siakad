@@ -1,36 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
-import {useDispatch, useSelector} from 'react-redux';
-import {retrieveAgama} from '../../actions/agama';
-import {retrieveRombel} from '../../actions/rombel';
+import {useDispatch} from 'react-redux';
 import {
-  createSiswa, retrieveDetailSiswa, updateSiswa,
-} from '../../actions/siswa';
+  createGuru, retrieveDetailGuru, updateGuru,
+} from '../../actions/guru';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormSiswa = () => {
+export const FormGuru = () => {
   const dispatch = useDispatch();
-  const agama = useSelector((state) => state.agama);
-  const rombel = useSelector((state) => state.rombel);
   const [values, setValues] = useState();
   const history = useHistory();
   const {id} = useParams();
 
   useEffect(() => {
-    dispatch(retrieveAgama());
-    dispatch(retrieveRombel());
-
     if (id) {
-      dispatch(retrieveDetailSiswa(id))
+      dispatch(retrieveDetailGuru(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateSiswa(values) : createSiswa(values))
-        .then(() => history.push('/siswa'))
+    dispatch(id ? updateGuru(values) : createGuru(values))
+        .then(() => history.push('/guru'))
         .catch((e) => console.log(e));
   };
 
@@ -39,15 +32,15 @@ export const FormSiswa = () => {
       <SiakadForm
         formContent={[
           {
-            id: 'nim',
-            label: 'NIM',
+            id: 'nuptk',
+            label: 'NUPTK',
             type: 'text',
-            placeholder: 'Masukan NIM',
+            placeholder: 'Masukan NUPTK',
             onChange: (e) => setValues({
               ...values,
-              nim: e.target.value,
+              nuptk: e.target.value,
             }),
-            value: values?.nim,
+            value: values?.nuptk,
           },
           {
             id: 'nama',
@@ -58,53 +51,49 @@ export const FormSiswa = () => {
               ...values,
               nama: e.target.value,
             }),
-            value: values?.nama,
+            value: values?.user.name,
           },
           {
-            id: 'tempatLahir',
-            label: 'Tempat Lahir',
+            id: 'gender',
+            label: 'Gender',
+            type: 'select',
+            placeholder: 'Masukan Gender',
+            onChange: (e) => setValues({
+              ...values,
+              gender: e.target.value,
+            }),
+            value: values?.gender,
+            data: [
+              {
+                id: 'l',
+                nama: 'Laki - laki',
+              },
+              {
+                id: 'p',
+                nama: 'Perempuan',
+              },
+            ],
+          },
+          {
+            id: 'username',
+            label: 'Username',
             type: 'text',
-            placeholder: 'Masukan Tempat Lahir',
+            placeholder: 'Masukan Username',
             onChange: (e) => setValues({
               ...values,
-              tempat_lahir: e.target.value,
+              username: e.target.value,
             }),
-            value: values?.tempat_lahir,
+            value: values?.user.username,
           },
           {
-            id: 'tanggalLahir',
-            label: 'Tanggal Lahir',
-            type: 'date',
-            placeholder: 'Masukan Tanggal Lahir',
+            id: 'password',
+            label: 'Password',
+            type: 'password',
+            placeholder: 'Masukan Password',
             onChange: (e) => setValues({
               ...values,
-              tanggal_lahir: e.target.value,
+              password: e.target.value,
             }),
-            value: values?.tanggal_lahir,
-          },
-          {
-            id: 'agama',
-            label: 'Agama',
-            type: 'select',
-            placeholder: 'Masukan Agama',
-            data: agama,
-            onChange: (e) => setValues({
-              ...values,
-              agamaId: e.target.value,
-            }),
-            value: values?.agamaId,
-          },
-          {
-            id: 'rombel',
-            label: 'Rombongan Belajar',
-            type: 'select',
-            placeholder: 'Masukan Rombongan Belajar',
-            data: rombel,
-            onChange: (e) => setValues({
-              ...values,
-              rombelId: e.target.value,
-            }),
-            value: values?.rombelId,
           },
         ]}
         onSubmit={onSubmit}
@@ -113,4 +102,4 @@ export const FormSiswa = () => {
   );
 };
 
-export default FormSiswa;
+export default FormGuru;

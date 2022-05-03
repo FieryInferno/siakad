@@ -45,12 +45,12 @@ export const Guru = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td> {guru.nuptk} </td>
-                <td> {guru.user.nama} </td>
+                <td> {guru.user?.name} </td>
                 <td> {guru.gender} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"
-                    to={`/guru/${guru.id}`}
+                    to={`/guru/edit/${guru.id}`}
                   >
                     <i className=' mdi mdi-pencil'></i>
                   </Link>

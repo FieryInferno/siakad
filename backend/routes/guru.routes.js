@@ -16,12 +16,11 @@ module.exports = (app) => {
   app.post(
       '/api/guru',
       [verifyToken],
-      body('nim').notEmpty(),
+      body('nuptk').notEmpty(),
       body('nama').notEmpty(),
-      body('tempat_lahir').notEmpty(),
-      body('tanggal_lahir').notEmpty(),
-      body('agamaId').notEmpty(),
-      body('rombelId').notEmpty(),
+      body('gender').notEmpty(),
+      body('username').notEmpty(),
+      body('password').notEmpty(),
       guru.create,
   );
   app.delete('/api/guru/:id', [verifyToken], guru.delete);

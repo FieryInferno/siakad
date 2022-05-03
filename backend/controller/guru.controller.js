@@ -1,6 +1,8 @@
 const db = require('../models');
 const Guru = db.guru;
+const User = db.user;
 const {validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 exports.getAll = (req, res) => {
   Guru.findAll({include: ['user']})
@@ -15,8 +17,28 @@ exports.create = (req, res) => {
     return res.status(400).send({errors: errors.array()});
   }
 
-  Guru.create(req.body)
-      .then((data) => res.status(200).send(data))
+  const {nuptk, nama, username, password, gender} = req.body;
+
+  User.create({
+    username: username,
+    password: bcrypt.hashSync(password, 8),
+    name: nama,
+  })
+      .then((user) => {
+        Guru.create({
+          nuptk: nuptk,
+          gender: gender,
+          userId: user.id,
+        })
+            .then((guru) => {
+              res.status(200).send(guru);
+            })
+            .catch((err) => {
+              res.status(500).send({
+                message: err.message || 'Some error occured',
+              });
+            });
+      })
       .catch((err) => {
         res.status(500).send({message: err.message || 'Some error occured'});
       });
@@ -37,7 +59,7 @@ exports.get = (req, res) => {
 
   Guru.findOne({
     where: {id: id},
-    include: ['agama', 'rombel'],
+    include: ['user'],
   })
       .then((data) => res.status(200).send(data))
       .catch((e) => {
