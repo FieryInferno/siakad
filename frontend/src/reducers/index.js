@@ -8,8 +8,9 @@ import sekolah from './sekolah';
 import mataPelajaran from './mataPelajaran';
 import kelas from './kelas';
 import jurusan from './jurusan';
+import tahunAkademik from './tahunAkademik';
 
 export default combineReducers({
   login, siswa, agama, rombel, guru, sekolah,
-  mataPelajaran, kelas, jurusan,
+  mataPelajaran, kelas, jurusan, tahunAkademik,
 });
