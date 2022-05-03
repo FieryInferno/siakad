@@ -20,6 +20,9 @@ const FormMataPelajaran = lazy(() => import('./pages/MataPelajaran/Form'));
 const Kelas = lazy(() => import('./pages/Kelas/index'));
 const FormKelas = lazy(() => import('./pages/Kelas/Form'));
 
+const Jurusan = lazy(() => import('./pages/Jurusan/index'));
+const FormJurusan = lazy(() => import('./pages/Jurusan/Form'));
+
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
@@ -41,6 +44,15 @@ const AppRoutes = (props) => {
             <Route exact path="/guru" component={ Guru } />
             <Route exact path="/guru/tambah" component={ FormGuru } />
             <Route exact path="/guru/edit/:id" component={ FormGuru } />
+
+            <Route exact path="/data_master/jurusan" component={ Jurusan } />
+            <Route
+              exact path="/data_master/jurusan/tambah" component={ FormJurusan }
+            />
+            <Route
+              exact
+              path="/data_master/jurusan/edit/:id" component={ FormJurusan }
+            />
 
             <Route exact path="/data_master/kelas" component={ Kelas } />
             <Route
