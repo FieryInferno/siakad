@@ -26,7 +26,7 @@ export const MataPelajaran = () => {
     <ContentHolder>
       <Link
         className="btn btn-primary btn-rounded btn-fw"
-        to={'/mata_pelajaran/tambah'}
+        to={'/data_master/mata_pelajaran/tambah'}
       >
         <i className="mdi mdi-account-multiple-plus"></i>
         Tambah
