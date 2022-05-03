@@ -20,7 +20,7 @@ db.siswa.belongsTo(db.rombel);
 db.rombel.hasOne(db.siswa);
 db.rombel.belongsTo(db.jurusan);
 db.jurusan.hasOne(db.rombel);
+db.user.hasOne(db.guru, {onDelete: 'CASCADE'});
 db.guru.belongsTo(db.user);
-db.user.hasOne(db.guru);
 
 module.exports = db;

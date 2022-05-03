@@ -18,7 +18,7 @@ const guruReducer = (
     case CREATE_GURU:
       return [...guru, payload];
     case DELETE_GURU:
-      return guru.filter(({id}) => id !== payload.id);
+      return guru.filter(({user}) => user.id !== payload.id);
     case RETRIEVE_DETAIL_GURU:
       return [...detail, payload];
     case UPDATE_GURU:

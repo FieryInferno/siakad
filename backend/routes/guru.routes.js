@@ -17,10 +17,10 @@ module.exports = (app) => {
       '/api/guru',
       [verifyToken],
       body('nuptk').notEmpty(),
-      body('nama').notEmpty(),
+      body('user.name').notEmpty(),
       body('gender').notEmpty(),
-      body('username').notEmpty(),
-      body('password').notEmpty(),
+      body('user.username').notEmpty(),
+      body('user.password').notEmpty(),
       guru.create,
   );
   app.delete('/api/guru/:id', [verifyToken], guru.delete);

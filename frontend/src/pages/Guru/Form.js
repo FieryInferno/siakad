@@ -9,7 +9,10 @@ import {useHistory, useParams} from 'react-router-dom';
 
 export const FormGuru = () => {
   const dispatch = useDispatch();
-  const [values, setValues] = useState();
+  const [values, setValues] = useState({user: {}});
+
+  console.log(values);
+
   const history = useHistory();
   const {id} = useParams();
 
@@ -50,7 +53,7 @@ export const FormGuru = () => {
             onChange: (e) => setValues({
               ...values,
               user: {
-                ...values.user,
+                ...values?.user,
                 name: e.target.value,
               },
             }),
@@ -85,7 +88,7 @@ export const FormGuru = () => {
             onChange: (e) => setValues({
               ...values,
               user: {
-                ...values.user,
+                ...values?.user,
                 username: e.target.value,
               },
             }),
@@ -99,7 +102,7 @@ export const FormGuru = () => {
             onChange: (e) => setValues({
               ...values,
               user: {
-                ...values.user,
+                ...values?.user,
                 password: e.target.value,
               },
             }),

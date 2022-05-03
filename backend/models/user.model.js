@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
     password: {type: Sequelize.STRING},
     name: {type: Sequelize.STRING},
     // eslint-disable-next-line new-cap
-    role: {type: Sequelize.ENUM('admin', 'walikelas')},
+    role: {type: Sequelize.ENUM('admin', 'guru', 'walikelas')},
   });
 
   return User;

@@ -48,7 +48,7 @@ exports.create = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Guru.destroy({where: {id: id}})
+  User.destroy({where: {id: id}})
       .then(() => res.send({message: 'Guru berhasi dihapus'}))
       .catch((e) => {
         res.status(500).send({message: e.message || 'Some error occured'});

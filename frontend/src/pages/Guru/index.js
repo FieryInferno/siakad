@@ -56,7 +56,7 @@ export const Guru = () => {
                   </Link>
                   <Button
                     className="btn btn-danger btn-rounded"
-                    onClick={() => removeGuru(guru.id)}
+                    onClick={() => removeGuru(guru.user.id)}
                   >
                     <i className='mdi mdi-delete'></i>
                   </Button>
