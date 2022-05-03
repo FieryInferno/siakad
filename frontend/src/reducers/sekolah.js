@@ -9,16 +9,7 @@ const sekolahReducer = (sekolah = initialState, action) => {
     case RETRIEVE_SEKOLAH:
       return payload;
     case UPDATE_SEKOLAH:
-      return sekolah.map((sekolah) => {
-        if (sekolah.id === payload.id) {
-          return {
-            ...sekolah,
-            ...payload,
-          };
-        } else {
-          return sekolah;
-        }
-      });
+      return payload;
     default:
       return sekolah;
   }

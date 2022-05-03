@@ -56,6 +56,12 @@ exports.get = (req, res) => {
 };
 
 exports.update = (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).send({errors: errors.array()});
+  }
+
   const id = req.params.id;
   const {nuptk, gender, user} = req.body;
 

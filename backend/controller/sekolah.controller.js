@@ -1,6 +1,6 @@
 const db = require('../models');
 const Sekolah = db.sekolah;
-// const {validationResult} = require('express-validator');
+const {validationResult} = require('express-validator');
 
 exports.get = (req, res) => {
   Sekolah.findOne()
@@ -9,6 +9,12 @@ exports.get = (req, res) => {
 };
 
 exports.update = (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).send({errors: errors.array()});
+  }
+
   const id = req.params.id;
 
   Sekolah.update(req.body, {where: {id: id}})

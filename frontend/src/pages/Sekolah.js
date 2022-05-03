@@ -8,8 +8,6 @@ export const FormSekolah = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState();
 
-  console.log(values);
-
   useEffect(() => {
     dispatch(retrieveSekolah())
         .then((data) => {
@@ -35,7 +33,7 @@ export const FormSekolah = () => {
             placeholder: 'Masukan Nama Sekolah',
             onChange: (e) => setValues({
               ...values,
-              namaSekolah: e.target.value,
+              nama: e.target.value,
             }),
             value: values?.nama,
           },
@@ -46,7 +44,7 @@ export const FormSekolah = () => {
             placeholder: 'Masukan Alamat Sekolah',
             onChange: (e) => setValues({
               ...values,
-              alamatSekolah: e.target.value,
+              alamat: e.target.value,
             }),
             value: values?.alamat,
           },
@@ -79,10 +77,7 @@ export const FormSekolah = () => {
             placeholder: 'Masukan Jenjang',
             onChange: (e) => setValues({
               ...values,
-              jenjang: {
-                ...values,
-                jenjang: e.target.value,
-              },
+              jenjang: e.target.value,
             }),
             data: [
               {

@@ -16,12 +16,12 @@ module.exports = (app) => {
   app.put(
       '/api/sekolah/:id',
       [verifyToken],
-      body('nim').notEmpty(),
       body('nama').notEmpty(),
-      body('tempat_lahir').notEmpty(),
-      body('tanggal_lahir').notEmpty(),
-      body('agamaId').notEmpty(),
-      body('rombelId').notEmpty(),
+      body('alamat').notEmpty(),
+      body('email').notEmpty(),
+      body('email').isEmail(),
+      body('telepon').notEmpty(),
+      body('jenjang').notEmpty(),
       sekolah.update,
   );
 };
