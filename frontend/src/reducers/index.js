@@ -5,5 +5,9 @@ import agama from './agama';
 import rombel from './rombel';
 import guru from './guru';
 import sekolah from './sekolah';
+import mataPelajaran from './mataPelajaran';
 
-export default combineReducers({login, siswa, agama, rombel, guru, sekolah});
+export default combineReducers({
+  login, siswa, agama, rombel, guru, sekolah,
+  mataPelajaran,
+});
