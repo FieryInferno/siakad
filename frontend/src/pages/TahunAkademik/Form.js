@@ -3,11 +3,11 @@ import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
 import {useDispatch} from 'react-redux';
 import {
-  createJurusan, retrieveDetailJurusan, updateJurusan,
-} from '../../actions/jurusan';
+  createTahunAkademik, retrieveDetailTahunAkademik, updateTahunAkademik,
+} from '../../actions/tahunAkademik';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormJurusan = () => {
+export const FormTahunAkademik = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     kode: '',
@@ -18,15 +18,15 @@ export const FormJurusan = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(retrieveDetailJurusan(id))
+      dispatch(retrieveDetailTahunAkademik(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateJurusan(values) : createJurusan(values))
-        .then(() => history.push('/data_master/jurusan'))
+    dispatch(id ? updateTahunAkademik(values) : createTahunAkademik(values))
+        .then(() => history.push('/data_master/tahun_akademik'))
         .catch((e) => console.log(e));
   };
 
@@ -36,9 +36,9 @@ export const FormJurusan = () => {
         formContent={[
           {
             id: 'kode',
-            label: 'Kode Jurusan',
+            label: 'Kode Tahun Akademik',
             type: 'text',
-            placeholder: 'Masukan Kode Jurusan',
+            placeholder: 'Masukan Kode Tahun Akademik',
             onChange: (e) => setValues({
               ...values,
               kode: e.target.value,
@@ -47,9 +47,9 @@ export const FormJurusan = () => {
           },
           {
             id: 'nama',
-            label: 'Nama Jurusan',
+            label: 'Nama Tahun Akademik',
             type: 'text',
-            placeholder: 'Masukan Nama Jurusan',
+            placeholder: 'Masukan Nama Tahun Akademik',
             onChange: (e) => setValues({
               ...values,
               nama: e.target.value,
@@ -63,4 +63,4 @@ export const FormJurusan = () => {
   );
 };
 
-export default FormJurusan;
+export default FormTahunAkademik;

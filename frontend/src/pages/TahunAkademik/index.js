@@ -36,8 +36,8 @@ export const TahunAkademik = () => {
           <thead>
             <tr>
               <th> No </th>
-              <th> Kode Tahun Akademik </th>
-              <th> Nama Tahun Akademik </th>
+              <th> Tahun Akademik </th>
+              <th> Is Aktif </th>
               <th> Aksi </th>
             </tr>
           </thead>
@@ -45,8 +45,8 @@ export const TahunAkademik = () => {
             {tahunAkademik.map((tahunAkademik, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td> {tahunAkademik.kode} </td>
-                <td> {tahunAkademik.nama} </td>
+                <td> {tahunAkademik.tahunAkademik} </td>
+                <td> {tahunAkademik.isAktif} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"
