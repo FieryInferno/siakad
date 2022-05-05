@@ -21,6 +21,7 @@ db.kelas = require('../models/kelas.model.js')(sequelize, Sequelize);
 db.tahunAkademik =
   require('../models/tahunAkademik.model.js')(sequelize, Sequelize);
 db.kurikulum = require('../models/kurikulum.model.js')(sequelize, Sequelize);
+db.jadwal = require('../models/jadwal.model.js')(sequelize, Sequelize);
 
 db.siswa.belongsTo(db.agama);
 db.agama.hasOne(db.siswa);
@@ -37,5 +38,18 @@ db.guru.user = db.guru.belongsTo(db.user);
 
 db.rombel.belongsTo(db.jurusan);
 db.jurusan.hasOne(db.rombel);
+
+db.jadwal.belongsTo(db.tahunAkademik);
+db.tahunAkademik.hasOne(db.jadwal);
+db.jadwal.belongsTo(db.jurusan);
+db.jurusan.hasOne(db.jadwal);
+db.jadwal.belongsTo(db.kelas);
+db.kelas.hasOne(db.jadwal);
+db.jadwal.belongsTo(db.mataPelajaran);
+db.mataPelajaran.hasOne(db.jadwal);
+db.jadwal.belongsTo(db.guru);
+db.guru.hasOne(db.jadwal);
+db.jadwal.belongsTo(db.rombel);
+db.rombel.hasOne(db.jadwal);
 
 module.exports = db;

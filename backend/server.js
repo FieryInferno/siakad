@@ -19,6 +19,7 @@ require('./routes/kelas.routes')(app);
 require('./routes/jurusan.routes')(app);
 require('./routes/tahunAkademik.routes')(app);
 require('./routes/kurikulum.routes')(app);
+require('./routes/jadwal.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;
