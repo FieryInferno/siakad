@@ -20,6 +20,7 @@ require('../models/mataPelajaran.model.js')(sequelize, Sequelize);
 db.kelas = require('../models/kelas.model.js')(sequelize, Sequelize);
 db.tahunAkademik =
   require('../models/tahunAkademik.model.js')(sequelize, Sequelize);
+db.kurikulum = require('../models/kurikulum.model.js')(sequelize, Sequelize);
 
 db.siswa.belongsTo(db.agama);
 db.agama.hasOne(db.siswa);

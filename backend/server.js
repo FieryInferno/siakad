@@ -18,6 +18,7 @@ require('./routes/mataPelajaran.routes')(app);
 require('./routes/kelas.routes')(app);
 require('./routes/jurusan.routes')(app);
 require('./routes/tahunAkademik.routes')(app);
+require('./routes/kurikulum.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;
