@@ -1,15 +1,30 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {retrieveJadwal} from '../actions/jadwal';
-import {Link} from 'react-router-dom';
+import {retrieveJadwal, createJadwal} from '../actions/jadwal';
+import {retrieveJurusan} from '../actions/jurusan';
+import {retrieveKelas} from '../actions/kelas';
+import {retrieveRombel} from '../actions/rombel';
 import ContentHolder from '../component/ContentHolder';
 import {Button} from 'react-bootstrap';
+import SiakadForm from '../component/SiakadForm';
 
 export const Jadwal = () => {
   const dispatch = useDispatch();
   const jadwal = useSelector((state) => state.jadwal);
+  const jurusan = useSelector((state) => state.jurusan);
+  const kelas = useSelector((state) => state.kelas);
+  const rombel = useSelector((state) => state.rombel);
+  const [values, setValues] = useState({
+    jurusanId: '',
+    kelasId: '',
+    rombelId: '',
+  });
 
   useEffect(() => {
+    dispatch(retrieveJurusan());
+    dispatch(retrieveKelas());
+    dispatch(retrieveRombel());
+
     dispatch(retrieveJadwal())
         .catch((e) => console.log(e));
   }, []);
@@ -20,15 +35,56 @@ export const Jadwal = () => {
         .catch((e) => console.log(e));
   };
 
+  const onSubmit = () => {
+    dispatch(createJadwal(values))
+        .then(() => console.log(e))
+        .catch((e) => console.log(e));
+  };
+
   return (
     <ContentHolder>
-      <Link
-        className="btn btn-primary btn-rounded btn-fw"
-        to={'/data_master/jadwal/tambah'}
-      >
-        <i className="mdi mdi-account-multiple-plus"></i>
-        Tambah
-      </Link>
+      <SiakadForm
+        formContent={[
+          {
+            id: 'jurusanId',
+            label: 'Jurusan',
+            type: 'select',
+            placeholder: 'Masukan Jurusan',
+            onChange: (e) => setValues({
+              ...values,
+              jurusanId: e.target.value,
+            }),
+            value: values?.jurusanId,
+            data: jurusan,
+          },
+          {
+            id: 'kelasId',
+            label: 'Kelas',
+            type: 'select',
+            placeholder: 'Masukan Kelas',
+            onChange: (e) => setValues({
+              ...values,
+              kelasId: e.target.value,
+            }),
+            value: values?.kelasId,
+            data: kelas,
+          },
+          {
+            id: 'rombelId',
+            label: 'Rombel',
+            type: 'select',
+            placeholder: 'Masukan Rombel',
+            onChange: (e) => setValues({
+              ...values,
+              rombelId: e.target.value,
+            }),
+            value: values?.rombelId,
+            data: rombel,
+          },
+        ]}
+        onSubmit={onSubmit}
+      />
+      <br/><br/><br/>
       <div className="table-responsive">
         <table className="table table-striped">
           <thead>

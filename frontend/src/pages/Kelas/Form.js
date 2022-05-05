@@ -3,11 +3,11 @@ import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
 import {useDispatch} from 'react-redux';
 import {
-  createMataPelajaran, retrieveDetailMataPelajaran, updateMataPelajaran,
-} from '../../actions/mataPelajaran';
+  createKelas, retrieveDetailKelas, updateKelas,
+} from '../../actions/kelas';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormMataPelajaran = () => {
+export const FormKelas = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     kode: '',
@@ -18,15 +18,15 @@ export const FormMataPelajaran = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(retrieveDetailMataPelajaran(id))
+      dispatch(retrieveDetailKelas(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateMataPelajaran(values) : createMataPelajaran(values))
-        .then(() => history.push('/data_master/mata_pelajaran'))
+    dispatch(id ? updateKelas(values) : createKelas(values))
+        .then(() => history.push('/data_master/kelas'))
         .catch((e) => console.log(e));
   };
 
@@ -63,4 +63,4 @@ export const FormMataPelajaran = () => {
   );
 };
 
-export default FormMataPelajaran;
+export default FormKelas;
