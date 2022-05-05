@@ -123,6 +123,11 @@ const Sidebar = (props) => {
               type: 'dropdown',
               menu: 'dataMaster',
             },
+            {
+              path: '/jadwal',
+              icon: <i className="mdi mdi-contacts"></i>,
+              title: 'Jadwal Pelajaran',
+            },
           ]}
           dropdown={dropdown}
           setDropdown={setDropdown}

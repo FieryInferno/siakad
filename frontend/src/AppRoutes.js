@@ -32,6 +32,7 @@ const FormRombel = lazy(() => import('./pages/Rombel/Form'));
 const Kurikulum = lazy(() => import('./pages/Kurikulum/index'));
 const FormKurikulum = lazy(() => import('./pages/Kurikulum/Form'));
 
+const Jadwal = lazy(() => import('./pages/Jadwal'));
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
@@ -120,6 +121,7 @@ const AppRoutes = (props) => {
               component={ FormMataPelajaran }
             />
 
+            <Route exact path="/jadwal" component={ Jadwal } />
             <Route exact path="/error-404" component={ Error404 } />
           </>
         ) : (
