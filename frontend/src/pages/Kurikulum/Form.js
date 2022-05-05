@@ -3,14 +3,14 @@ import ContentHolder from '../../component/ContentHolder';
 import SiakadForm from '../../component/SiakadForm';
 import {useDispatch} from 'react-redux';
 import {
-  createJurusan, retrieveDetailJurusan, updateJurusan,
-} from '../../actions/jurusan';
+  createKurikulum, retrieveDetailKurikulum, updateKurikulum,
+} from '../../actions/kurikulum';
 import {useHistory, useParams} from 'react-router-dom';
 
-export const FormJurusan = () => {
+export const FormKurikulum = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
-    kode: '',
+    isAktif: '',
     nama: '',
   });
   const history = useHistory();
@@ -18,14 +18,14 @@ export const FormJurusan = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(retrieveDetailJurusan(id))
+      dispatch(retrieveDetailKurikulum(id))
           .then((data) => setValues(data))
           .catch((e) => console.log(e));
     }
   }, []);
 
   const onSubmit = () => {
-    dispatch(id ? updateJurusan(values) : createJurusan(values))
+    dispatch(id ? updateKurikulum(values) : createKurikulum(values))
         .then(() => history.push('/data_master/jurusan'))
         .catch((e) => console.log(e));
   };
@@ -35,26 +35,36 @@ export const FormJurusan = () => {
       <SiakadForm
         formContent={[
           {
-            id: 'kode',
-            label: 'Kode Jurusan',
-            type: 'text',
-            placeholder: 'Masukan Kode Jurusan',
-            onChange: (e) => setValues({
-              ...values,
-              kode: e.target.value,
-            }),
-            value: values?.kode,
-          },
-          {
             id: 'nama',
-            label: 'Nama Jurusan',
+            label: 'Nama Kurikulum',
             type: 'text',
-            placeholder: 'Masukan Nama Jurusan',
+            placeholder: 'Masukan Nama Kurikulum',
             onChange: (e) => setValues({
               ...values,
               nama: e.target.value,
             }),
             value: values?.nama,
+          },
+          {
+            id: 'isAktif',
+            label: 'Is Aktif',
+            type: 'select',
+            placeholder: 'Masukan Is Aktif',
+            onChange: (e) => setValues({
+              ...values,
+              isAktif: e.target.value,
+            }),
+            value: values?.isAktif,
+            data: [
+              {
+                id: 'y',
+                nama: 'Ya',
+              },
+              {
+                id: 't',
+                nama: 'Tidak',
+              },
+            ],
           },
         ]}
         onSubmit={onSubmit}
@@ -63,4 +73,4 @@ export const FormJurusan = () => {
   );
 };
 
-export default FormJurusan;
+export default FormKurikulum;
