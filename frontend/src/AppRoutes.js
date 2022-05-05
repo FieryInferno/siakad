@@ -26,6 +26,9 @@ const FormJurusan = lazy(() => import('./pages/Jurusan/Form'));
 const TahunAkademik = lazy(() => import('./pages/TahunAkademik/index'));
 const FormTahunAkademik = lazy(() => import('./pages/TahunAkademik/Form'));
 
+const Rombel = lazy(() => import('./pages/Rombel/index'));
+const FormRombel = lazy(() => import('./pages/Rombel/Form'));
+
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
@@ -47,6 +50,14 @@ const AppRoutes = (props) => {
             <Route exact path="/guru" component={ Guru } />
             <Route exact path="/guru/tambah" component={ FormGuru } />
             <Route exact path="/guru/edit/:id" component={ FormGuru } />
+
+            <Route exact path="/data_master/rombel" component={ Rombel } />
+            <Route
+              exact path="/data_master/rombel/tambah" component={ FormRombel }
+            />
+            <Route
+              exact path="/data_master/rombel/edit/:id" component={ FormRombel }
+            />
 
             <Route
               exact
