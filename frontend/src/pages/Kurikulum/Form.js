@@ -26,7 +26,7 @@ export const FormKurikulum = () => {
 
   const onSubmit = () => {
     dispatch(id ? updateKurikulum(values) : createKurikulum(values))
-        .then(() => history.push('/data_master/jurusan'))
+        .then(() => history.push('/data_master/kurikulum'))
         .catch((e) => console.log(e));
   };
 

@@ -44,7 +44,7 @@ export const Kurikulum = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td> {kurikulum.nama} </td>
-                <td> {kurikulum.isAktif} </td>
+                <td> {kurikulum.isAktif === 'y' ? 'Ya' : 'Tidak'} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"
