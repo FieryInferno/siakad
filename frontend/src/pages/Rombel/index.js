@@ -34,8 +34,9 @@ export const Rombel = () => {
           <thead>
             <tr>
               <th> No </th>
-              <th> Kode Rombel </th>
               <th> Nama Rombel </th>
+              <th> Jurusan </th>
+              <th> Kelas </th>
               <th> Aksi </th>
             </tr>
           </thead>
@@ -43,8 +44,9 @@ export const Rombel = () => {
             {rombel.map((rombel, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td> {rombel.kode} </td>
                 <td> {rombel.nama} </td>
+                <td> {rombel.jurusan.nama} </td>
+                <td> {rombel.kelas} </td>
                 <td>
                   <Link
                     className="btn btn-success btn-rounded"

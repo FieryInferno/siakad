@@ -34,4 +34,7 @@ db.user.hasOne(db.guru, {onDelete: 'CASCADE'});
 db.guru.belongsTo(db.user);
 db.guru.user = db.guru.belongsTo(db.user);
 
+db.rombel.belongsTo(db.jurusan);
+db.jurusan.hasOne(db.rombel);
+
 module.exports = db;
