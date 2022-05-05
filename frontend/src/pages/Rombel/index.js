@@ -45,7 +45,7 @@ export const Rombel = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td> {rombel.nama} </td>
-                <td> {rombel.jurusan.nama} </td>
+                <td> {rombel.jurusan?.nama} </td>
                 <td> {rombel.kelas} </td>
                 <td>
                   <Link

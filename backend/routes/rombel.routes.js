@@ -16,15 +16,17 @@ module.exports = (app) => {
   app.post(
       '/api/rombel',
       [verifyToken],
-      body('kode').notEmpty(),
+      body('kelas').notEmpty(),
       body('nama').notEmpty(),
+      body('jurusanId').notEmpty(),
       rombel.create,
   );
   app.put(
       '/api/rombel/:id',
       [verifyToken],
-      body('kode').notEmpty(),
+      body('kelas').notEmpty(),
       body('nama').notEmpty(),
+      body('jurusanId').notEmpty(),
       rombel.update,
   );
   app.get('/api/rombel/:id', [verifyToken], rombel.get);
