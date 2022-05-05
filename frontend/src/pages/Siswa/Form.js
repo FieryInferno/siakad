@@ -17,8 +17,6 @@ export const FormSiswa = () => {
   const history = useHistory();
   const {id} = useParams();
 
-  console.log(id);
-
   useEffect(() => {
     dispatch(retrieveAgama());
     dispatch(retrieveRombel());
