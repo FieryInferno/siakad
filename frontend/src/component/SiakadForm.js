@@ -38,11 +38,15 @@ const SiakadForm = ({formContent, onSubmit}) => {
           }
         </Form.Group>
       ))}
-      <button
-        className="btn btn-primary mr-2" onClick={onSubmit}>Submit</button>
-      <button className="btn btn-dark" onClick={() => history.goBack()}>
-        Cancel
-      </button>
+      {onSubmit && (
+        <>
+          <button
+            className="btn btn-primary mr-2" onClick={onSubmit}>Submit</button>
+          <button className="btn btn-dark" onClick={() => history.goBack()}>
+            Cancel
+          </button>
+        </>
+      )}
     </>
   );
 };

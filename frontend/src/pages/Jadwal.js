@@ -35,14 +35,14 @@ export const Jadwal = () => {
         .catch((e) => console.log(e));
   };
 
-  const onSubmit = () => {
-    dispatch(createJadwal(values))
-        .then(() => console.log(e))
-        .catch((e) => console.log(e));
+  const generateJadwal = () => {
+    console.log(createJadwal);
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Data Jadwal'} options={[
+      'Dashboard', 'Jadwal',
+    ]}>
       <SiakadForm
         formContent={[
           {
@@ -82,8 +82,13 @@ export const Jadwal = () => {
             data: rombel,
           },
         ]}
-        onSubmit={onSubmit}
       />
+      <button className="btn btn-primary mr-2" onClick={generateJadwal}>
+        Generate Jadwal
+      </button>
+      <button className="btn btn-dark" onClick={() => history.goBack()}>
+        Cancel
+      </button>
       <br/><br/><br/>
       <div className="table-responsive">
         <table className="table table-striped">

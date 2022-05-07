@@ -23,7 +23,9 @@ export const Kelas = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Data Ruangan Kelas'} options={[
+      'Dashboard', 'Ruangan Kelas',
+    ]}>
       <Link
         className="btn btn-primary btn-rounded btn-fw"
         to={'/data_master/kelas/tambah'}

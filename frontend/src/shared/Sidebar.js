@@ -98,7 +98,7 @@ const Sidebar = (props) => {
                   path: '/data_master/mata_pelajaran',
                 },
                 {
-                  label: 'Kelas',
+                  label: 'Ruangan Kelas',
                   path: '/data_master/kelas',
                 },
                 {
