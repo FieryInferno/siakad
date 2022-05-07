@@ -52,6 +52,12 @@ export const Kurikulum = () => {
                   >
                     <i className=' mdi mdi-pencil'></i>
                   </Link>
+                  <Link
+                    className="btn btn-primary btn-rounded"
+                    to={`/data_master/kurikulum/detail/${kurikulum.id}`}
+                  >
+                    <i className=' mdi mdi-eye'></i>
+                  </Link>
                   <Button
                     className="btn btn-danger btn-rounded"
                     onClick={() => removeKurikulum(kurikulum.id)}

@@ -23,10 +23,6 @@ require('./routes/jadwal.routes')(app);
 
 // const db = require('./models');
 // const User = db.user;
-// const Jurusan = db.jurusan;
-// const Rombel = db.rombel;
-// const Agama = db.agama;
-// const Siswa = db.siswa;
 // const Sekolah = db.sekolah;
 // const bcrypt = require('bcryptjs');
 
@@ -36,29 +32,6 @@ require('./routes/jadwal.routes')(app);
 //     password: bcrypt.hashSync('admin', 8),
 //     name: 'admin',
 //     role: 'admin',
-//   });
-
-//   Jurusan.create({
-//     kode: 'RPL',
-//     nama: 'REKAYASA PERANGKAT LUNAK',
-//   });
-//   Agama.create({nama: 'ISLAM'});
-
-//   Rombel.create({
-//     nama: 'RPL1A',
-//     kelas: '1',
-//     jurusanId: 1,
-//   });
-
-//   Siswa.create({
-//     nim: '10104019',
-//     nama: 'Devi Ratna Daniati',
-//     gender: 'P',
-//     tanggal_lahir: '2000-11-26',
-//     tempat_lahir: 'Rangkas',
-//     foto: '',
-//     agamaId: 1,
-//     rombelId: 1,
 //   });
 
 //   Sekolah.create({

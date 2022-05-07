@@ -1,7 +1,9 @@
 import React, {Suspense, lazy} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect, useHistory} from 'react-router-dom';
 import Spinner from './shared/Spinner';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import AuthVerify from './authVerify';
+import {logout} from './actions/login';
 
 const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
@@ -31,11 +33,21 @@ const FormRombel = lazy(() => import('./pages/Rombel/Form'));
 
 const Kurikulum = lazy(() => import('./pages/Kurikulum/index'));
 const FormKurikulum = lazy(() => import('./pages/Kurikulum/Form'));
+const DetailKurikulum = lazy(() => import('./pages/Kurikulum/Detail'));
 
 const Jadwal = lazy(() => import('./pages/Jadwal'));
 const Error404 = lazy(() => import('./pages/Error404'));
 const AppRoutes = (props) => {
   const login = useSelector((state) => state.login);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const logOut = () => {
+    dispatch(logout())
+        .then(() => {
+          history.push('/login');
+        })
+        .catch((e) => console.log(e));
+  };
 
   return (
     <Suspense fallback={<Spinner/>}>
@@ -65,6 +77,11 @@ const AppRoutes = (props) => {
             <Route
               exact
               path="/data_master/kurikulum/edit/:id" component={ FormKurikulum }
+            />
+            <Route
+              exact
+              path="/data_master/kurikulum/detail/:id"
+              component={ DetailKurikulum }
             />
 
             <Route exact path="/data_master/rombel" component={ Rombel } />
@@ -131,6 +148,7 @@ const AppRoutes = (props) => {
           </>
         )}
       </Switch>
+      <AuthVerify logOut={logOut} />
     </Suspense>
   );
 };
