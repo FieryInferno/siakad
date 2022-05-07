@@ -29,4 +29,16 @@ module.exports = (app) => {
   );
   app.get('/api/kurikulum/:id', [verifyToken], kurikulum.get);
   app.delete('/api/kurikulum/:id', [verifyToken], kurikulum.delete);
+
+  app.get('/api/kurikulumDetail', [verifyToken], kurikulum.getAllDetail);
+  app.post(
+      '/api/kurikulumDetail',
+      [verifyToken],
+      body('isAktif').notEmpty(),
+      body('nama').notEmpty(),
+      kurikulum.createDetail,
+  );
+  app.delete(
+      '/api/kurikulumDetail/:id', [verifyToken], kurikulum.deleteDetail,
+  );
 };

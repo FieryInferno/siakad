@@ -1,5 +1,6 @@
 const db = require('../models');
 const Kurikulum = db.kurikulum;
+const KurikulumDetail = db.kurikulumDetail;
 const {validationResult} = require('express-validator');
 
 exports.getAll = (req, res) => {
@@ -57,5 +58,36 @@ exports.update = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({message: err.message || 'Some error occured'});
+      });
+};
+
+
+exports.getAllDetail = (req, res) => {
+  KurikulumDetail.findAll()
+      .then((kurikulum) => res.status(200).send(kurikulum))
+      .catch((e) => res.status(500).send({message: e.message}));
+};
+
+exports.createDetail = (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).send({errors: errors.array()});
+  }
+
+  KurikulumDetail.create(req.body)
+      .then((data) => res.status(200).send(data))
+      .catch((err) => {
+        res.status(500).send({message: err.message || 'Some error occured'});
+      });
+};
+
+exports.deleteDetail = (req, res) => {
+  const id = req.params.id;
+
+  KurikulumDetail.destroy({where: {id: id}})
+      .then(() => res.send({message: 'Kurikulum berhasi dihapus'}))
+      .catch((e) => {
+        res.status(500).send({message: e.message || 'Some error occured'});
       });
 };

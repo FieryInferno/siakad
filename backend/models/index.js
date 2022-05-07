@@ -22,6 +22,8 @@ db.tahunAkademik =
   require('../models/tahunAkademik.model.js')(sequelize, Sequelize);
 db.kurikulum = require('../models/kurikulum.model.js')(sequelize, Sequelize);
 db.jadwal = require('../models/jadwal.model.js')(sequelize, Sequelize);
+db.kurikulumDetail =
+  require('../models/kurikulumDetail.model.js')(sequelize, Sequelize);
 
 db.siswa.belongsTo(db.agama);
 db.agama.hasOne(db.siswa);
@@ -51,5 +53,12 @@ db.jadwal.belongsTo(db.guru);
 db.guru.hasOne(db.jadwal);
 db.jadwal.belongsTo(db.rombel);
 db.rombel.hasOne(db.jadwal);
+
+db.kurikulumDetail.belongsTo(db.kurikulum);
+db.kurikulum.hasOne(db.kurikulumDetail);
+db.kurikulumDetail.belongsTo(db.mataPelajaran);
+db.mataPelajaran.hasOne(db.kurikulumDetail);
+db.kurikulumDetail.belongsTo(db.jurusan);
+db.jurusan.hasOne(db.kurikulumDetail);
 
 module.exports = db;
