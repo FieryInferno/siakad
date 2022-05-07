@@ -8,7 +8,7 @@ const get = (id) => http.get(`/kurikulum/${id}`);
 
 const getAllDetailKurikulum = () => http.get('/kurikulumDetail');
 const createDetailKurikulum = (data) => http.post('/kurikulumDetail', data);
-const deleteDetailKurikulum = (id) => http.delete(`/kurikulumDetail${id}`);
+const deleteDetailKurikulum = (id) => http.delete(`/kurikulumDetail/${id}`);
 const dataService = {
   getAll, create, deleteKurikulum, get, update, getAllDetailKurikulum,
   createDetailKurikulum, deleteDetailKurikulum,

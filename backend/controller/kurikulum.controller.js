@@ -63,7 +63,7 @@ exports.update = (req, res) => {
 
 
 exports.getAllDetail = (req, res) => {
-  KurikulumDetail.findAll()
+  KurikulumDetail.findAll({include: ['jurusan', 'mataPelajaran']})
       .then((kurikulum) => res.status(200).send(kurikulum))
       .catch((e) => res.status(500).send({message: e.message}));
 };

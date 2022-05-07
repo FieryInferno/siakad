@@ -21,6 +21,7 @@ export const FormDetailDetailKurikulum = () => {
     kurikulumId: '',
     mataPelajaranId: '',
     jurusanId: '',
+    kelas: '',
   });
 
   const onSubmit = () => {

@@ -34,8 +34,10 @@ module.exports = (app) => {
   app.post(
       '/api/kurikulumDetail',
       [verifyToken],
-      body('isAktif').notEmpty(),
-      body('nama').notEmpty(),
+      body('kurikulumId').notEmpty(),
+      body('mataPelajaranId').notEmpty(),
+      body('jurusanId').notEmpty(),
+      body('kelas').notEmpty(),
       kurikulum.createDetail,
   );
   app.delete(

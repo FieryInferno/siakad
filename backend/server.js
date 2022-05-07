@@ -24,6 +24,9 @@ require('./routes/jadwal.routes')(app);
 // const db = require('./models');
 // const User = db.user;
 // const Sekolah = db.sekolah;
+// const MataPelajaran = db.mataPelajaran;
+// const Kurikulum = db.kurikulum;
+// const Jurusan = db.jurusan;
 // const bcrypt = require('bcryptjs');
 
 // const initialDatabase = () => {
@@ -40,6 +43,21 @@ require('./routes/jadwal.routes')(app);
 //     email: 'smajalancagak@gmail.com',
 //     telepon: '085723853284',
 //     jenjang: 'sma',
+//   });
+
+//   MataPelajaran.create({
+//     kode: 'MTK',
+//     nama: 'MATEMATIKA',
+//   });
+
+//   Jurusan.create({
+//     kode: 'RPL',
+//     nama: 'REKAYASA PERANGKAT LUNAK',
+//   });
+
+//   Kurikulum.create({
+//     nama: 'KURIKULUM 2016',
+//     isAktif: 'y',
 //   });
 // };
 
