@@ -31,7 +31,9 @@ export const FormKurikulum = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Tambah Kurikulum'} options={[
+      'Dashboard', 'Kurikulum', 'Tambah',
+    ]}>
       <SiakadForm
         formContent={[
           {

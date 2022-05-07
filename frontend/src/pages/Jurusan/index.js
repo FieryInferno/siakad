@@ -23,7 +23,9 @@ export const Jurusan = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Data Jurusan'} options={[
+      'Dashboard', 'Jurusan',
+    ]}>
       <Link
         className="btn btn-primary btn-rounded btn-fw"
         to={'/data_master/jurusan/tambah'}

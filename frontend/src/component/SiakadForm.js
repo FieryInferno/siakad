@@ -14,7 +14,7 @@ const SiakadForm = ({formContent, onSubmit}) => {
             (
               <select
                 className="form-control" id={form.id} onChange={form.onChange}
-                value={form.value}
+                value={form.value} disabled={form.disabled}
               >
                 <option>{form.placeholder}</option>
                 {form.data.map((option, index) => (
@@ -32,6 +32,7 @@ const SiakadForm = ({formContent, onSubmit}) => {
                 placeholder={form.placeholder}
                 onChange={form.onChange}
                 value={form.value}
+                disabled={form.disabled}
               />
             )
           }

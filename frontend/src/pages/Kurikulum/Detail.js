@@ -5,10 +5,12 @@ import {
 } from '../../actions/detailKurikulum';
 import ContentHolder from '../../component/ContentHolder';
 import {Button} from 'react-bootstrap';
+import {Link, useParams} from 'react-router-dom';
 
 export const DetailKurikulum = () => {
   const dispatch = useDispatch();
   const detailKurikulum = useSelector((state) => state.detailKurikulum);
+  const {id} = useParams();
 
   useEffect(() => {
     dispatch(retrieveDetailKurikulum())
@@ -22,7 +24,16 @@ export const DetailKurikulum = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Detail Kurikulum'} options={[
+      'Dashboard', 'Kurikulum', 'Detail',
+    ]}>
+      <Link
+        className="btn btn-primary btn-rounded btn-fw"
+        to={`/data_master/kurikulum/detail/${id}/tambah`}
+      >
+        <i className="mdi mdi-account-multiple-plus"></i>
+        Tambah
+      </Link>
       <div className="table-responsive">
         <table className="table table-striped">
           <thead>

@@ -21,7 +21,9 @@ export const Kurikulum = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Data Kurikulum'} options={[
+      'Dashboard', 'Kurikulum',
+    ]}>
       <Link
         className="btn btn-primary btn-rounded btn-fw"
         to={'/data_master/kurikulum/tambah'}

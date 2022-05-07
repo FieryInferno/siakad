@@ -31,7 +31,9 @@ export const FormMataPelajaran = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Tambah Mata Pelajaran'} options={[
+      'Dashboard', 'Mata Pelajaran', 'Tambah',
+    ]}>
       <SiakadForm
         formContent={[
           {

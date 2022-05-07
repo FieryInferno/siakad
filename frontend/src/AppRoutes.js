@@ -34,6 +34,7 @@ const FormRombel = lazy(() => import('./pages/Rombel/Form'));
 const Kurikulum = lazy(() => import('./pages/Kurikulum/index'));
 const FormKurikulum = lazy(() => import('./pages/Kurikulum/Form'));
 const DetailKurikulum = lazy(() => import('./pages/Kurikulum/Detail'));
+const FormDetailKurikulum = lazy(() => import('./pages/Kurikulum/FormDetail'));
 
 const Jadwal = lazy(() => import('./pages/Jadwal'));
 const Error404 = lazy(() => import('./pages/Error404'));
@@ -82,6 +83,11 @@ const AppRoutes = (props) => {
               exact
               path="/data_master/kurikulum/detail/:id"
               component={ DetailKurikulum }
+            />
+            <Route
+              exact
+              path="/data_master/kurikulum/detail/:id/tambah"
+              component={ FormDetailKurikulum }
             />
 
             <Route exact path="/data_master/rombel" component={ Rombel } />

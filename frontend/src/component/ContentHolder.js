@@ -1,10 +1,10 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 
-const ContentHolder = ({children}) => {
+const ContentHolder = ({children, title, options}) => {
   return (
     <>
-      <Breadcrumb title='Data Siswa' options={['Dashboard', 'Siswa']} />
+      <Breadcrumb title={title} options={options} />
       <div className="row">
         <div className="col-lg-12 grid-margin stretch-card">
           <div className="card">

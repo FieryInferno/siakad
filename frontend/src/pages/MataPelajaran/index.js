@@ -23,7 +23,9 @@ export const MataPelajaran = () => {
   };
 
   return (
-    <ContentHolder>
+    <ContentHolder title={'Data Mata Pelajaran'} options={[
+      'Dashboard', 'Mata Pelajaran',
+    ]}>
       <Link
         className="btn btn-primary btn-rounded btn-fw"
         to={'/data_master/mata_pelajaran/tambah'}
